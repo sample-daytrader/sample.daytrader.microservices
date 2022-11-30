@@ -1,0 +1,85 @@
+version: "3"
+
+services:
+  daytrader-web-service:
+    image: maven:3.8.4-openjdk-8-slim
+    hostname: daytrader-web-service
+    container_name: daytrader-web-service
+    ports:
+      - 5443:5443
+    volumes:
+      - ./daytrader-web-service:/build
+    entrypoint: >
+      sh -c "
+        mvn --file=/build/pom.xml package &&
+        cd /build/daytrader-web &&
+        ./env/external/springboot/bin/start_server.sh"
+    networks:
+      - daytrader
+
+  daytrader-gateway-service:
+    image: maven:3.8.4-openjdk-8-slim
+    hostname: daytrader-gateway-service
+    container_name: daytrader-gateway-service
+    ports:
+      - 2443:2443
+    volumes:
+      - ./daytrader-gateway-service:/build
+    entrypoint: >
+      sh -c "
+        mvn --file=/build/pom.xml package &&
+        cd /build/daytrader-gateway &&
+        ./env/external/springboot/bin/start_server.sh"
+    networks:
+      - daytrader
+
+  daytrader-portfolios-service:
+    image: maven:3.8.4-openjdk-8-slim
+    hostname: daytrader-portfolios-service
+    container_name: daytrader-portfolios-service
+    ports:
+      - 3443:3443
+    volumes:
+      - ./daytrader-portfolio-service:/build
+    entrypoint: >
+      sh -c "
+        mvn --file=/build/pom.xml package &&
+        cd /build/daytrader-portfolios &&
+        ./env/external/springboot/bin/start_server.sh"
+    networks:
+      - daytrader
+#
+  daytrader-quotes-service:
+    image: maven:3.8.4-openjdk-8-slim
+    hostname: daytrader-quotes-service
+    container_name: daytrader-quotes-service
+    ports:
+      - 4443:4443
+    volumes:
+      - ./daytrader-quotes-service:/build
+    entrypoint: >
+      sh -c "
+        mvn --file=/build/pom.xml package &&
+        cd /build/daytrader-quotes &&
+        ./env/external/springboot/bin/start_server.sh"
+    networks:
+      - daytrader
+
+  daytrader-accounts-service:
+    image: maven:3.8.4-openjdk-8-slim
+    hostname: daytrader-accounts-service
+    container_name: daytrader-accounts-service
+    ports:
+      - 1443:1443
+    volumes:
+      - ./daytrader-accounts-service:/build
+    entrypoint: >
+      sh -c "
+        mvn --file=/build/pom.xml package &&
+        cd /build/daytrader-accounts &&
+        ./env/external/springboot/bin/start_server.sh"
+    networks:
+      - daytrader
+
+networks:
+  daytrader: null
