@@ -25,6 +25,7 @@ import org.apache.geronimo.daytrader.javaee6.gateway.utils.Log;
 import java.util.ArrayList;
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.Map;
 
 // Javax
 import javax.ws.rs.BadRequestException;
@@ -276,6 +277,23 @@ public class GatewayController
 	 * REST call to populate the database with the specified users and quotes
 	 * 
 	 */
+
+	/**
+	 * This is a dummy call to test if we can pick up a POST payload.
+	 *
+	 * @param valMap
+	 * @return
+	 */
+	@RequestMapping(
+			value = "/admin/test",
+			method = RequestMethod.POST,
+			consumes = "application/json"
+	)
+	public ResponseEntity<String> testAPIRequest(
+			@RequestBody Map<String,String> valMap ) {
+		return new ResponseEntity<String>(valMap.get("key"), HttpStatus.OK);
+	}
+
 	@RequestMapping(value = "/admin/tradeBuildDB", method = RequestMethod.POST)
 	public ResponseEntity<Boolean> tradeBuildDB( 
 			@RequestParam(value = "limit") int limit,
@@ -335,7 +353,7 @@ public class GatewayController
 	{	
 		Log.traceEnter("GatewayController.recreateDBTables()");
 		
-		Boolean result = false;
+		boolean result = false;
 		
 		try
 		{
