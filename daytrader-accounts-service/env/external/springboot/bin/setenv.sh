@@ -38,16 +38,16 @@ export SERVER_PORT_HTTPS=1443
 #
 # set service routes
 #                                                                                                                                               
-export DAYTRADER_ACCOUNTS_SERVICE=https://localhost:1443
-export DAYTRADER_GATEWAY_SERVICE=https://localhost:2443
-export DAYTRADER_PORTFOLIOS_SERVICE=https://localhost:3443
-export DAYTRADER_QUOTES_SERVICE=https://localhost:4443
+export DAYTRADER_ACCOUNTS_SERVICE=http://localhost:1443
+export DAYTRADER_GATEWAY_SERVICE=http://localhost:2443
+export DAYTRADER_PORTFOLIOS_SERVICE=http://localhost:3443
+export DAYTRADER_QUOTES_SERVICE=http://localhost:4443
 #
 # set log variables
 #
 export DAYTRADER_LOG_FILENAME=/tmp/$DAYTRADER_APP_ARTIFACTID-$DAYTRADER_APP_VERSION.log
 export DAYTRADER_LOG_LEVEL=TRACE
-export DAYTRADER_LOG_APPENDER=ConsoleAppender
+export DAYTRADER_LOG_APPENDER=FileAppender
 echo "DAYTRADER_LOG_FILENAME=$DAYTRADER_LOG_FILENAME"
 echo "DAYTRADER_LOG_LEVEL=$DAYTRADER_LOG_LEVEL"
 echo "DAYTRADER_LOG_APPENDER=$DAYTRADER_LOG_APPENDER"
