@@ -26,9 +26,10 @@ import static org.junit.Assert.fail;
 
 import  org.apache.geronimo.daytrader.javaee6.accounts.service.AccountsRemoteCallService;
 
-import org.apache.geronimo.daytrader.javaee6.entities.AccountDataBean;
-import org.apache.geronimo.daytrader.javaee6.entities.AccountProfileDataBean;
-import org.apache.geronimo.daytrader.javaee6.utils.TradeConfig;
+import org.apache.geronimo.daytrader.javaee6.accounts.entities.AccountDataBean;
+import org.apache.geronimo.daytrader.javaee6.accounts.entities.AccountProfileDataBean;
+import org.apache.geronimo.daytrader.javaee6.accounts.utils.TradeConfig;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -37,6 +38,7 @@ import java.io.StringWriter;
 //otherwise the test log messages will be written to the server log and the server log
 //messages will not written. For debugging, you will need the server log messages.
 
+@SpringBootTest(classes = AccountsApplication.class)
 public class AccountsIntegrationTests {
 	
 	// The remote call service for testing this microservice

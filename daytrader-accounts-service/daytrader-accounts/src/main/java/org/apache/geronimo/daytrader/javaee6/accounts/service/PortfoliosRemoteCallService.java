@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 // Daytrader
-import org.apache.geronimo.daytrader.javaee6.entities.AccountDataBean;
+import org.apache.geronimo.daytrader.javaee6.accounts.entities.AccountDataBean;
 
 // Spring Framework
 import org.springframework.stereotype.Service;

@@ -44,10 +44,10 @@ import javax.naming.InitialContext;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.NotAuthorizedException;
 
-import org.apache.geronimo.daytrader.javaee6.entities.*;
-import org.apache.geronimo.daytrader.javaee6.core.beans.*;
-import org.apache.geronimo.daytrader.javaee6.core.direct.*;
-import org.apache.geronimo.daytrader.javaee6.utils.TradeConfig;
+import org.apache.geronimo.daytrader.javaee6.accounts.entities.*;
+import org.apache.geronimo.daytrader.javaee6.accounts.beans.*;
+import org.apache.geronimo.daytrader.javaee6.accounts.direct.*;
+import org.apache.geronimo.daytrader.javaee6.accounts.utils.TradeConfig;
 
 import org.springframework.stereotype.Service;
 

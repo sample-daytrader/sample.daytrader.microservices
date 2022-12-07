@@ -14,15 +14,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package org.apache.geronimo.daytrader.javaee6.accounts.utils;
 
-//Java
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Collection;
 import java.util.Iterator;
 
+//
+//
 //	  - Upgraded to Log4j2
 //
 import org.apache.logging.log4j.Logger;
@@ -31,10 +31,13 @@ import org.apache.logging.log4j.LogManager;
 public class Log {	
 	
 //
-//	  - Upgraded to Log4j2 (01)
 //
+//	  - Upgraded to Log4j2
+//
+
+//  (03)
 //	 -  Each microservice has their own logger
-	private final static Logger log = LogManager.getLogger("org.apache.geronimo.daytrader.javaee6.accounts");
+	private final static Logger log = LogManager.getLogger("org.apache.geronimo.daytrader.javaee6");
 //A general purpose, high performance logging, tracing, statistic service
 
     public static void log(String message)
@@ -83,11 +86,11 @@ public class Log {
     }
     public static void error(Throwable e, String msg1, String msg2)
     {
-        error(e,msg1+"\n"+msg2+"\n\t");
+        error(msg1+"\n"+msg2+"\n\t",e);
     }
     public static void error(Throwable e, String msg1, String msg2, String msg3)
     {
-        error(e,msg1+"\n"+msg2+"\n"+msg3+"\n\t");
+        error(msg1+"\n"+msg2+"\n"+msg3+"\n\t", e);
     }
     
     

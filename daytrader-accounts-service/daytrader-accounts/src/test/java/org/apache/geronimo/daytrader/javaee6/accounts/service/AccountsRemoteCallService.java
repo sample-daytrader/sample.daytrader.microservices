@@ -24,8 +24,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.math.BigDecimal;
 
 // Daytrader
-import org.apache.geronimo.daytrader.javaee6.core.beans.*;
-import org.apache.geronimo.daytrader.javaee6.entities.*;
+import org.apache.geronimo.daytrader.javaee6.accounts.beans.*;
+import org.apache.geronimo.daytrader.javaee6.accounts.entities.*;
 
 // Spring
 import org.springframework.stereotype.Service;
@@ -50,9 +50,10 @@ public class AccountsRemoteCallService extends BaseRemoteCallService
 	}
 
 //  - Naming convention based service discovery 
-	  private static String accountsServiceRoute = System.getenv("DAYTRADER_ACCOUNTS_SERVICE");	
+//	  private static String accountsServiceRoute = System.getenv("DAYTRADER_ACCOUNTS_SERVICE");
+	  private static String accountsServiceRoute = "http://localhost:1443";
 
-   
+
 	   /**
 		*
 		* @see AccountsService#tradeBuildDB(int,int)

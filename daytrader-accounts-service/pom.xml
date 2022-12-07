@@ -42,8 +42,6 @@
 	</properties>
 
 	<modules>
-		<module>daytrader-entities</module>
-		<module>daytrader-utilities</module>
 		<module>daytrader-accounts</module>
 	</modules>
 
@@ -65,7 +63,25 @@
 	</dependencies>
 	<build>
 		<plugins>
-			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>daytrader-accounts/tradesdb</directory>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+						<fileset>
+							<directory>daytrader-accounts</directory>
+							<includes>
+								<include>derby.log</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
 			<!-- Set JDK compiler version  -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

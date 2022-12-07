@@ -26,24 +26,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>daytrader-accounts</artifactId>
 	<packaging>war</packaging>
-	
-	<dependencies>
-	
-		<!-- Module Dependencies -->
 
-	    <dependency>
-            <groupId>org.apache.geronimo.daytrader.javaee6.accounts</groupId>
-            <artifactId>daytrader-utilities</artifactId>            
-            <scope>compile</scope>         
-            <version>4.0.0</version>
-        </dependency>        
-		
-        <dependency>
-            <groupId>org.apache.geronimo.daytrader.javaee6.accounts</groupId>
-            <artifactId>daytrader-entities</artifactId>            
-            <scope>compile</scope>    
-			<version>4.0.0</version>
-        </dependency>
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+	<dependencies>
 		
 		<!-- Database Dependencies -->
 
@@ -100,7 +91,11 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-web</artifactId>
 	    </dependency>
-		
+	    <dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-test</artifactId>
+	    </dependency>
+
 		<!-- 
 		spring-boot-starter-tomcat: enable an embedded Apache Tomcat 8 instance, by default. 
 		-->
@@ -166,7 +161,14 @@
 		<dependency>
     	    <groupId>org.glassfish.jersey.core</groupId>
         	<artifactId>jersey-client</artifactId>
-		</dependency>  
+		</dependency>
+
+        <dependency>
+            <groupId>com.github.sbrannen</groupId>
+            <artifactId>spring-test-junit5</artifactId>
+            <version>1.5.0</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 

@@ -29,9 +29,9 @@ import java.math.BigDecimal;
 import javax.ws.rs.NotAuthorizedException;
 
 // Daytrader
-import org.apache.geronimo.daytrader.javaee6.core.beans.RunStatsDataBean;
-import org.apache.geronimo.daytrader.javaee6.entities.AccountDataBean;
-import org.apache.geronimo.daytrader.javaee6.entities.AccountProfileDataBean;
+import org.apache.geronimo.daytrader.javaee6.accounts.beans.RunStatsDataBean;
+import org.apache.geronimo.daytrader.javaee6.accounts.entities.AccountDataBean;
+import org.apache.geronimo.daytrader.javaee6.accounts.entities.AccountProfileDataBean;
 
 // Spring
 import org.springframework.http.HttpHeaders;
@@ -46,25 +46,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * API endpoints are documented using Swagger UI. 
- * 
- * @see https://{accountsHost}:{accountsPort}/swagger-ui.html
- * 
+ *
+ * @see <a href="https://">{accountsHost}:{accountsPort}/swagger-ui.html</a>
+ *
  * HTTP Methods. There is no official and enforced standard for designing HTTP & RESTful APIs.
  * There are many ways for designing them. These notes cover the guidelines used for designing
  * the aforementioned HTTP & RESTful API.
- * 
+ *
  * - GET is used for reading objects; no cache headers is used if the object should not be cached
- * 
+ *
  * - POST is used for creating objects or for operations that change the server side state. In the
  *   case where an object is created, the created object is returned; instead of it'd URI. This is 
  *   in keeping with the existing services. A better practice is to return the URI to the created
  *   object, but we elected to keep the REST APIs consistent with the existing services. New APIs 
  *   that return the URI can be added during Stage 04: Microservices if required. 
- *   
+ *
  * - PUT is used for full updates
- * 
+ *
  * - PATCH is used for partial updates
- * 
+ *
  * TODO:
  * 1.	Access Control
  *		The controller provides a centralized location for access control. Currently,
