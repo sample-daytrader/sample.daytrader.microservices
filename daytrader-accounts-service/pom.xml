@@ -125,7 +125,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-				
+
 		<!-- Third Party Dependencies -->
 	
 		<dependency>
@@ -192,11 +192,11 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-
+        </dependency>
+        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
         </dependency>
-
 
     </dependencies>
 
@@ -221,11 +221,11 @@
                 <configuration>
                     <filesets>
                         <fileset>
-                            <directory>daytrader-accounts/tradesdb</directory>
+                            <directory>tradesdb</directory>
                             <followSymlinks>false</followSymlinks>
                         </fileset>
                         <fileset>
-                            <directory>daytrader-accounts</directory>
+                            <directory>${project.basedir}</directory>
                             <includes>
                                 <include>derby.log</include>
                             </includes>
@@ -266,16 +266,26 @@
   				<activeByDefault>true</activeByDefault>
 			</activation>
   			 <properties>
-                <daytraderKeystoreFolder>${project.basedir}/src/main/resources/external/ssl</daytraderKeystoreFolder>
-                <daytraderLogLevel>TRACE</daytraderLogLevel>
-                <daytraderLogFilename>/tmp/${daytraderAppArtifactId}-${daytraderAppVersion}.log</daytraderLogFilename>
-                <daytraderLogAppender>ConsoleAppender</daytraderLogAppender>
-                <accountsServiceRoute>https://localhost:1443</accountsServiceRoute>
-                <gatewayServiceRoute>https://localhost:2443</gatewayServiceRoute>
-                <portfoliosServiceRoute>https://localhost:3443</portfoliosServiceRoute>
-                <quotesServiceRoute>https://localhost:4443</quotesServiceRoute>
-                <daytraderTruststoreLocation>${daytraderKeystoreFolder}/truststore.jks</daytraderTruststoreLocation>
-                <daytraderTruststorePassword>password</daytraderTruststorePassword>     
+                 <!-- Docker image name -->
+                 <docker.image.name>daytrader-accounts-service</docker.image.name>
+                 <!-- Logging level and service routes -->
+                 <daytraderLogLevel>TRACE</daytraderLogLevel>
+                 <daytraderLogFilename>/tmp/${project.artifactId}-${project.version}.log</daytraderLogFilename>
+                 <daytraderLogAppender>FileAppender</daytraderLogAppender>
+                 <accountsServiceRoute>http://localhost:1443</accountsServiceRoute>
+                 <gatewayServiceRoute>http://localhost:2443</gatewayServiceRoute>
+                 <portfoliosServiceRoute>http://localhost:3443</portfoliosServiceRoute>
+                 <quotesServiceRoute>http://localhost:4443</quotesServiceRoute>
+                 <!-- SSL information -->
+                 <daytraderKeystoreFolder>${project.basedir}/src/main/resources/external/ssl</daytraderKeystoreFolder>
+                 <daytraderTruststoreLocation>${daytraderKeystoreFolder}/truststore.jks</daytraderTruststoreLocation>
+                 <daytraderTruststorePassword>password</daytraderTruststorePassword>
+                 <!-- Port -->
+                 <serverPort>1443</serverPort>
+                 <databaseDriver>org.apache.derby.jdbc.EmbeddedDriver</databaseDriver>
+                 <databaseUrl>jdbc:derby:tradesdb;create=true</databaseUrl>
+
+
             </properties>
   			<build>
   			
@@ -412,206 +422,66 @@
                             </execution>
                         </executions>
                     </plugin>
-                    
+                    <!-- Construct a docker container out of the build artifacts -->
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>0.40.2</version>
+                        <configuration>
+                            <verbose>true</verbose>
+                            <images>
+                                <image>
+                                    <name>${docker.image.name}</name>
+                                    <build>
+                                        <dockerFileDir>${project.basedir}</dockerFileDir>
+                                        <assembly>
+                                            <descriptorRef>artifact-with-dependencies</descriptorRef>
+                                        </assembly>
+                                        <tags>
+                                            <tag>latest</tag>
+                                            <tag>${project.version}</tag>
+                                        </tags>
+                                        <args>
+                                            <WAR_ARTIFACTID>${project.artifactId}</WAR_ARTIFACTID>
+                                            <APP_VERSION>${project.version}</APP_VERSION>
+                                            <APP_ARTIFACTID>${project.artifactId}</APP_ARTIFACTID>
+                                            <EXPOSE_PORT>${serverPort}</EXPOSE_PORT>
+                                            <DATABASE_DRIVER>${databaseDriver}</DATABASE_DRIVER>
+                                            <DATABASE_URL>${databaseUrl}</DATABASE_URL>
+                                        </args>
+                                    </build>
+                                    <run>
+                                        <ports>
+                                            <port>1443:1443</port>
+                                        </ports>
+                                        <wait>
+                                            <log>Started AccountsApplication</log>
+                                        </wait>
+                                    </run>
+
+                                </image>
+                            </images>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>default</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>deploy</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
   				</plugins>
-  			
   			</build>
 		</profile>
-	  	
-        <!--  Profile to run on Kubernetes -->
-  		<profile>
-  			<id>kubernetes</id>
-  			<properties>
-  				<daytraderKeystoreFolder>${project.basedir}/src/main/resources/external/ssl</daytraderKeystoreFolder>
-				<docker.image.prefix>rkrsn</docker.image.prefix>				<dockerfile-maven-version>1.4.0</dockerfile-maven-version>	
-
-                <daytraderKeystoreFolder>${project.basedir}/src/main/resources/external/ssl</daytraderKeystoreFolder>
-                <daytraderLogLevel>TRACE</daytraderLogLevel>
-                <daytraderLogFilename>/tmp/${daytraderAppArtifactId}-${daytraderAppVersion}.log</daytraderLogFilename>
-                <daytraderLogAppender>ConsoleAppender</daytraderLogAppender>
-                <accountsServiceRoute>http://localhost:8001/api/v1/namespaces/default/services/https:daytrader-accounts:/proxy</accountsServiceRoute>
-                <gatewayServiceRoute>http://localhost:8001/api/v1/namespaces/default/services/https:daytrader-gateway:/proxy</gatewayServiceRoute>
-                <portfoliosServiceRoute>http://localhost:8001/api/v1/namespaces/default/services/https:daytrader-portfolios:/proxy</portfoliosServiceRoute>
-                <quotesServiceRoute>http://localhost:8001/api/v1/namespaces/default/services/https:daytrader-quotes:/proxy</quotesServiceRoute>
-                <daytraderTruststoreLocation>${daytraderKeystoreFolder}/truststore.jks</daytraderTruststoreLocation>
-                <daytraderTruststorePassword>password</daytraderTruststorePassword>     
-            </properties>
-  			
-  			<build>
-  			
-                <plugins>
-                  			
-  			        <!-- Copy resources into the output directory prior to packaging  --> 
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <version>2.4.2</version>
-                        <executions>
-                            <execution>
-                                <id>default-copy-resources</id>
-                                <phase>prepare-package</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <overwrite>true</overwrite>
-                                    <outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/classes/</outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>${daytraderKeystoreFolder}</directory>
-                                            <includes>
-                                                <include>keystore.jks</include>
-                                                <include>truststore.jks</include>
-                                            </includes>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                
-                    <!--  Repackage the WAR so it can be executed from the command line using java -jar -->
-                    <plugin>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-maven-plugin</artifactId>               
-                        <configuration>
-                            <fork>true</fork>
-                            <mainClass>org.apache.geronimo.daytrader.javaee6.accounts.AccountsApplication</mainClass>
-                        </configuration>
-                    </plugin>
-  			
-					<!--  Build the docker image and push it to docker hub -->
-			        <plugin>
-		       			<groupId>com.spotify</groupId>
-       					<artifactId>dockerfile-maven-plugin</artifactId>
-       					<version>${dockerfile-maven-version}</version>
-       					<executions>
-         					<execution>
-           						<phase>package</phase>
-			           			<goals>
-            						<goal>build</goal>
-             						<goal>push</goal>
-			           			</goals>
-			        		</execution>
-      					</executions>
-      					<configuration>
-        					<repository>${docker.image.prefix}/${project.artifactId}</repository>
-        					<tag>4.0.18</tag>
-				    		<buildArgs>
-                                <WAR_ARTIFACTID>${project.artifactId}</WAR_ARTIFACTID>
-          						<APP_VERSION>${project.parent.version}</APP_VERSION>
-                                <APP_ARTIFACTID>${project.parent.artifactId}</APP_ARTIFACTID>
-                                <EXPOSE_PORT>1443</EXPOSE_PORT>
-                                <DATABASE_DRIVER>org.apache.derby.jdbc.EmbeddedDriver</DATABASE_DRIVER>
-                                <DATABASE_URL>jdbc:derby:tradesdb;create=true</DATABASE_URL>
-                                <DATABASE_USERNAME></DATABASE_USERNAME>
-                                <DATABASE_PASSWORD></DATABASE_PASSWORD>
-				    		</buildArgs>
-						    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-			    		</configuration>
-    				</plugin>
-    				
-    				
-    				<!-- Run the integration test and verify the results -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>integration-tests</id>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                                <configuration>
-                                    <includes>
-                                        <include>**/*IntegrationTests.java</include>
-                                    </includes>
-                                    <environmentVariables>                  
-                                        <DAYTRADER_ACCOUNTS_SERVICE>${accountsServiceRoute}</DAYTRADER_ACCOUNTS_SERVICE>
-                                        <DAYTRADER_GATEWAY_SERVICE>${gatewayServiceRoute}</DAYTRADER_GATEWAY_SERVICE>
-                                        <DAYTRADER_PORTFOLIOS_SERVICE>${portfoliosServiceRoute}</DAYTRADER_PORTFOLIOS_SERVICE>
-                                        <DAYTRADER_QUOTES_SERVICE>${quotesServiceRoute}</DAYTRADER_QUOTES_SERVICE>
-                                        <DAYTRADER_LOG_LEVEL>${daytraderLogLevel}</DAYTRADER_LOG_LEVEL>
-                                        <DAYTRADER_LOG_FILENAME>${daytraderLogFilename}</DAYTRADER_LOG_FILENAME>
-                                        <DAYTRADER_LOG_APPENDER>${daytraderLogAppender}</DAYTRADER_LOG_APPENDER>
-                                    </environmentVariables>                                    
-                                    <systemPropertyVariables>
-                                        <javax.net.ssl.trustStore>${daytraderTruststoreLocation}</javax.net.ssl.trustStore>
-                                        <javax.net.ssl.trustStorePassword>${daytraderTruststorePassword}</javax.net.ssl.trustStorePassword>
-                                    </systemPropertyVariables>
-                                    
-                                    <!-- Don't use system class loader or else maven-failsafe-plugin fails -->
-                                    <useSystemClassLoader>false</useSystemClassLoader>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>           
-                    <!-- Additional bindings (executions) to setup and teardown the environment -->             
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <executions>
-                        
-                            <!-- pre-integration-test: create the service -->
-                            <execution>
-                                <id>create-service</id>
-                                <phase>pre-integration-test</phase>
-                                <configuration>
-                                    <target>
-                                        <condition property="buildScript" value="create_service.bat" else="create_service.sh">
-                                            <os family="windows"/>
-                                        </condition>
-                                        <echo>Starting ${project.basedir}/env/external/kubernetes/bin/${buildScript}</echo>
-                                        <exec executable="${project.basedir}/env/external/kubernetes/bin/${buildScript}" spawn="true">
-                                        </exec>
-                                    </target>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                            </execution>
-
-                            <!-- pre-integration-test: wait for the pod to start -->
-                            <execution>
-                                <id>wait-for-pod-to-start</id>
-                                <phase>pre-integration-test</phase>
-                                <configuration>
-                                    <target>
-                                        <sleep seconds="90" />
-                                    </target>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                             </execution>
-                            
-                            <!-- post-integration-test: Delete the service --> 
-                            <execution>
-                                <id>delete-service</id>
-                                <phase>post-integration-test</phase>
-                                <configuration>
-                                    <target>
-                                        <condition property="buildScript" value="delete_service.bat" else="delete_service.sh">
-                                            <os family="windows"/>
-                                        </condition>
-                                        <echo>Starting ${project.basedir}/env/external/kubernetes/bin/${buildScript}</echo>
-                                        <exec executable="${project.basedir}/env/external/kubernetes/bin/${buildScript}" spawn="true">
-                                        </exec>
-                                    </target>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                            </execution>
-                            
-                        </executions>
-                    </plugin>
-    				
-				</plugins>
-			</build>
-		</profile>
-  	
 	</profiles>
-
 </project>
