@@ -18,9 +18,9 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-	<!-- 
-	spring-boot-starter-parent: provides useful Maven defaults. It also provides a 
-	dependency-management section so that you can omit version tags for existing 
+	<!--
+	spring-boot-starter-parent: provides useful Maven defaults. It also provides a
+	dependency-management section so that you can omit version tags for existing
 	dependencies.
 	-->
   	<parent>
@@ -28,13 +28,13 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.9.RELEASE</version>
 	</parent>
-	
+
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.apache.geronimo.daytrader.javaee6.quotes</groupId>
-	<artifactId>daytrader-quotesapp</artifactId>
+	<groupId>org.apache.geronimo</groupId>
+	<artifactId>daytrader-microservices</artifactId>
 	<packaging>pom</packaging>
 	<version>4.0.0</version>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -42,53 +42,10 @@
 	</properties>
 
 	<modules>
-		<module>daytrader-entities</module>
-		<module>daytrader-utilities</module>
-		<module>daytrader-quotes</module>
+		<module>daytrader-web-service</module>
+		<module>daytrader-gateway-service</module>
+		<module>daytrader-accounts-service</module>
+		<module>daytrader-quotes-service</module>
+		<module>daytrader-portfolio-service</module>
 	</modules>
-
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>	  
-
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-		</dependency>	
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-		</dependency>
-
-	</dependencies>
-	<build>
-		<plugins>
-		
-			<!-- Set JDK compiler version  -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			
-			<!-- Workaround: Spring Boot fails to run maven-surefire-plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <useSystemClassLoader>false</useSystemClassLoader>
-                    <excludes>
-                        <exclude>**/*IntegrationTests.java</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-		</plugins>
-	</build>
-
 </project>

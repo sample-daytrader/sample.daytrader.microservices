@@ -24,9 +24,9 @@
 <!--    </parent>-->
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.9.RELEASE</version>
+        <groupId>org.apache.geronimo</groupId>
+        <artifactId>daytrader-microservices</artifactId>
+        <version>4.0.0</version>
     </parent>
     
 	<modelVersion>4.0.0</modelVersion>
@@ -227,7 +227,8 @@
                         <fileset>
                             <directory>${project.basedir}</directory>
                             <includes>
-                                <include>derby.log</include>
+                                <include>*.log</include>
+<include>*.iml</include>
                             </includes>
                         </fileset>
                     </filesets>
