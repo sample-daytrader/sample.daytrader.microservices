@@ -18,7 +18,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<parent>
-		<groupId>org.apache.geronimo</groupId>
+		<groupId>com.ibm.sample.daytrader</groupId>
 		<artifactId>daytrader-microservices</artifactId>
 		<version>4.0.0</version>
 	</parent>
@@ -313,7 +313,7 @@
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
 							<fork>true</fork>
-							<mainClass>org.apache.geronimo.daytrader.javaee6.web.Application</mainClass>
+							<mainClass>com.ibm.sample.daytrader.web.Application</mainClass>
 						</configuration>
 					</plugin>
 					<!-- Run the integration test and verify the results -->

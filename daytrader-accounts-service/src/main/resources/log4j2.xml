@@ -43,7 +43,7 @@
 		<!-- 
 		     Each microservice has their own logger 
 		-->
-        <Logger name="org.apache.geronimo.daytrader.javaee6.accounts" level="${LOG_LEVEL}" additivity="false">
+        <Logger name="com.ibm.sample.daytrader.accounts" level="${LOG_LEVEL}" additivity="false">
 			<AppenderRef ref="${LOG_APPENDER}"/>
         </Logger>
     </Loggers>

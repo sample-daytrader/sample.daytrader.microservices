@@ -41,7 +41,7 @@
         	<AppenderRef level="DEBUG" ref="${LOG_APPENDER}" />
      	</Root>
 
-        <Logger name="org.apache.geronimo.daytrader.javaee6.portfolios" level="${LOG_LEVEL}" additivity="false">
+        <Logger name="com.ibm.sample.daytrader.portfolios" level="${LOG_LEVEL}" additivity="false">
 			<AppenderRef ref="${LOG_APPENDER}"/>
         </Logger>
     </Loggers>

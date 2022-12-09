@@ -21,7 +21,7 @@
 <TITLE>Welcome to DayTrader</TITLE>
 </HEAD>
 <BODY bgcolor="#ffffff" link="#000099">
-<%@ page import="org.apache.geronimo.daytrader.javaee6.portfolios.utils.TradeConfig"
+<%@ page import="utils.com.ibm.sample.daytrader.portfolios.TradeConfig"
 	session="false" isThreadSafe="true" isErrorPage="false"%>
 
 <TABLE style="font-size: smaller">

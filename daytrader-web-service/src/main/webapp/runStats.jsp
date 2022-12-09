@@ -21,11 +21,11 @@
 <TITLE>Welcome to Trade</TITLE>
 </HEAD>
 <BODY bgcolor="#ffffff" link="#000099">
-<%@ page import="org.apache.geronimo.daytrader.javaee6.utils.*"
+<%@ page import="com.ibm.sample.daytrader.utils.*"
     session="true" isThreadSafe="true" isErrorPage="false"%>
 
 <jsp:useBean
-    class="org.apache.geronimo.daytrader.javaee6.portfolios.direct.beans.RunStatsDataBean"
+    class="beans.direct.com.ibm.sample.daytrader.portfolios.RunStatsDataBean"
     id="runStatsData" scope="request" />
 <% 
 double loginPercentage = (double) ((TradeConfig.getScenarioMixes())[TradeConfig.workloadMix][TradeConfig.LOGOUT_OP]) / 100.0;

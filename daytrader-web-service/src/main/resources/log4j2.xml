@@ -42,7 +42,7 @@
      	</Root>
      	
 		<!--  Each microservice has their own logger -->
-        <Logger name="org.apache.geronimo.daytrader.javaee6.web" level="${LOG_LEVEL}" additivity="false">
+        <Logger name="com.ibm.sample.daytrader.web" level="${LOG_LEVEL}" additivity="false">
 			<AppenderRef ref="${LOG_APPENDER}"/>
         </Logger>
     </Loggers>
