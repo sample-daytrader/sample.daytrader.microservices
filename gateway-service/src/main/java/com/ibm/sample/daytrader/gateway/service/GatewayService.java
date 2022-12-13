@@ -114,13 +114,15 @@ public class GatewayService {
 			Log.trace("Succeeded in re-creating Portfolios databases");
 		} else {
 			Log.error("Failed to re-create Portfolios databases");
+			return false;
 		}
 		if (quotesService.recreateDBTables()) {
 			Log.trace("Succeeded in re-creating Quotes databases");
 		} else {
 			Log.error("Failed to re-create Quotes databases");
+			return false;
 		}
-		return false;
+		return true;
     }   
 	
     /**

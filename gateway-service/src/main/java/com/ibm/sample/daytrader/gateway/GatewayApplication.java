@@ -29,7 +29,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
-@ServletComponentScan(basePackages={"com.ibm.sample.daytrader.web"})
+@ServletComponentScan(basePackages={"com.ibm.sample.daytrader.gateway"})
 @SpringBootApplication
 public class GatewayApplication extends SpringBootServletInitializer {
 	
