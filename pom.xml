@@ -42,10 +42,11 @@
 	</properties>
 
 	<modules>
-		<module>daytrader-web-service</module>
-		<module>daytrader-gateway-service</module>
-		<module>daytrader-accounts-service</module>
-		<module>daytrader-quotes-service</module>
-		<module>daytrader-portfolio-service</module>
-	</modules>
+		<module>web-service</module>
+		<module>gateway-service</module>
+		<module>accounts-service</module>
+		<module>quotes-service</module>
+		<module>portfolios-service</module>
+        <module>ping-service</module>
+    </modules>
 </project>

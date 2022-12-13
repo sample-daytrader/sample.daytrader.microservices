@@ -4,49 +4,71 @@ name: daytrader-microservices
 
 services:
   daytrader-web-service:
-    image: daytrader-web-service
+    image: daytrader-web-service:latest
     hostname: daytrader-web-service
     container_name: daytrader-web-service
+    network_mode: host
     ports:
-      - 5443:5443
+      - "5443:5443"
     networks:
       - daytrader
 
   daytrader-gateway-service:
-    image: daytrader-gateway-service
+    image: daytrader-gateway-service:latest
     hostname: daytrader-gateway-service
     container_name: daytrader-gateway-service
+    network_mode: host
     ports:
-      - 2443:2443
+      - "2443:2443"
     networks:
       - daytrader
 
   daytrader-portfolios-service:
-    image: daytrader-portfolios-service
+    image: daytrader-portfolios-service:latest
     hostname: daytrader-portfolios-service
     container_name: daytrader-portfolios-service
+    network_mode: host
     ports:
-      - 3443:3443
+      - "3443:3443"
     networks:
       - daytrader
 #
   daytrader-quotes-service:
-    image: daytrader-quotes-service
+    image: daytrader-quotes-service:latest
     hostname: daytrader-quotes-service
     container_name: daytrader-quotes-service
+    network_mode: host
     ports:
-      - 4443:4443
+      - "4443:4443"
     networks:
       - daytrader
 
   daytrader-accounts-service:
-    image: daytrader-accounts-service
+    image: daytrader-accounts-service:latest
     hostname: daytrader-accounts-service
     container_name: daytrader-accounts-service
+    network_mode: host
     ports:
-      - 1443:1443
+      - "1443:1443"
+    networks:
+      - daytrader
+
+  daytrader-ping-service:
+    image: daytrader-ping-service:latest
+    hostname: daytrader-ping-service
+    container_name: daytrader-ping-service
+    network_mode: host
+    ports:
+      - "6443:6443"
+    depends_on:
+      - daytrader-gateway-service
+      - daytrader-accounts-service
+      - daytrader-portfolios-service
+      - daytrader-quotes-service
+      - daytrader-web-service
     networks:
       - daytrader
 
 networks:
-  daytrader: null
+  daytrader:
+    name: daytrader-microservice-network
