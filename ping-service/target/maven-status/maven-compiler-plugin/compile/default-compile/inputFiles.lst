@@ -1,9 +1,0 @@
-/Users/rkrsn/workspace/daytrader/sample.daytrader.microservices/ping-service/src/main/java/com/ibm/sample/daytrader/ping/service/PingRemoteCallService.java
-/Users/rkrsn/workspace/daytrader/sample.daytrader.microservices/ping-service/src/main/java/com/ibm/sample/daytrader/ping/service/BaseRemoteCallService.java
-/Users/rkrsn/workspace/daytrader/sample.daytrader.microservices/ping-service/src/main/java/com/ibm/sample/daytrader/ping/beans/PingGatewayBean.java
-/Users/rkrsn/workspace/daytrader/sample.daytrader.microservices/ping-service/src/main/java/com/ibm/sample/daytrader/ping/utils/Log.java
-/Users/rkrsn/workspace/daytrader/sample.daytrader.microservices/ping-service/src/main/java/com/ibm/sample/daytrader/ping/PingApplication.java
-/Users/rkrsn/workspace/daytrader/sample.daytrader.microservices/ping-service/src/main/java/com/ibm/sample/daytrader/ping/controller/PingController.java
-/Users/rkrsn/workspace/daytrader/sample.daytrader.microservices/ping-service/src/main/java/com/ibm/sample/daytrader/ping/entities/AccountProfileDataBean.java
-/Users/rkrsn/workspace/daytrader/sample.daytrader.microservices/ping-service/src/main/java/com/ibm/sample/daytrader/ping/entities/AccountDataBean.java
-/Users/rkrsn/workspace/daytrader/sample.daytrader.microservices/ping-service/src/main/java/com/ibm/sample/daytrader/ping/utils/TradeConfig.java
