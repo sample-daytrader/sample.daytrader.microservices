@@ -69,7 +69,7 @@ public class AccountsService
     private static PortfoliosRemoteCallService portfoliosService = new PortfoliosRemoteCallService();
 	
 	//	- Each microservice has their own private database (datasource)
-    private static String dsName = TradeConfig.ACCOUNTS_DATASOURCE;
+    private static final String dsName = TradeConfig.ACCOUNTS_DATASOURCE;
 
     //	-  @Resource annotation is not supported on static fields
     private static DataSource datasource = null;
@@ -681,8 +681,8 @@ public class AccountsService
     }
     
     // Common database utilities
-    
-    private String checkDBProductName() throws Exception 
+
+	private String checkDBProductName() throws Exception
 	{
         Connection conn = null;
         String dbProductName = null;

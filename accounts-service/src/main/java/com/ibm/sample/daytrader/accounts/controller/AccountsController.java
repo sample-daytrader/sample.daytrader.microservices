@@ -24,6 +24,7 @@ import com.ibm.sample.daytrader.accounts.utils.Log;
 
 // Java
 import java.math.BigDecimal;
+import java.util.Map;
 
 import javax.ws.rs.NotAuthorizedException;
 
@@ -78,7 +79,15 @@ public class AccountsController
 	//
 	// Account Related Endpoints
 	//
-	
+	@RequestMapping(
+			value = "/admin/test",
+			method = RequestMethod.POST,
+			consumes = "application/json"
+	)
+	public ResponseEntity<String> testAPIRequest(
+			@RequestBody Map<String,String> valMap ) {
+		return new ResponseEntity<String>(valMap.get("key"), HttpStatus.OK);
+	}
 	/**
 	 * REST call to register the user provided in the request body.
 	 * 
