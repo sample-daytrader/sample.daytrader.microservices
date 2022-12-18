@@ -25,12 +25,13 @@ import org.apache.catalina.startup.Tomcat;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.embedded.tomcat.TomcatContextCustomizer;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.web.servlet.ServletComponentScan;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.embedded.tomcat.TomcatWebServer;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
 
 @ServletComponentScan(basePackages={"com.ibm.sample.daytrader"})
 @SpringBootApplication
@@ -49,37 +50,29 @@ public class DaytraderWebApplication extends SpringBootServletInitializer {
 	}
 
 	@Bean
-	public TomcatEmbeddedServletContainerFactory tomcatFactory() 
-	{	
-		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory() 
+	public TomcatServletWebServerFactory tomcatFactory()
+	{
+
+		TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory()
 		{
 			@Override
-			protected TomcatEmbeddedServletContainer getTomcatEmbeddedServletContainer(Tomcat tomcat) 
+			protected TomcatWebServer getTomcatWebServer(Tomcat tomcat)
 			{
 				tomcat.enableNaming();
-				return super.getTomcatEmbeddedServletContainer(tomcat);
+				return super.getTomcatWebServer(tomcat);
 			}
 
 			@Override
 			protected void postProcessContext(Context context) {}
 		};
-		
-		TomcatContextCustomizer contextCustomizer = new TomcatContextCustomizer() 
-		{
-		    @Override
-		    public void customize(Context context) 
-		    {
-                // Set the cookie properties to make sure the browser will send them over the
-                // in-secure connection (ie. http) between the browser and the kubectl proxy.
-		        context.setUseHttpOnly(true);
-		        context.setSessionCookiePath("/");
-		    }
-		};
-		
-		factory.setTomcatContextCustomizers(Arrays.asList(contextCustomizer));
 
-	    return factory;
+		factory.setTomcatContextCustomizers(Arrays.asList(context -> {
+			// Set the cookie properties to make sure the browser will send them over the
+			// in-secure connection (ie. http) between the browser and the kubectl proxy.
+			context.setUseHttpOnly(true);
+			context.setSessionCookiePath("/");
+		}));
+		return factory;
 	}
-	
 }
 
