@@ -25,10 +25,10 @@ import org.apache.tomcat.util.descriptor.web.ContextResource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.embedded.tomcat.TomcatWebServer;
 import org.springframework.boot.web.servlet.ServletComponentScan;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
 @ServletComponentScan(basePackages={"com.ibm.sample.daytrader.accounts"})
@@ -52,15 +52,15 @@ public class AccountsApplication extends SpringBootServletInitializer {
 	}
 
 	@Bean
-	public TomcatEmbeddedServletContainerFactory tomcatFactory() 
+	public TomcatServletWebServerFactory tomcatFactory()
 	{
-		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory() 
+		return new TomcatServletWebServerFactory()
 		{
 			@Override
-			protected TomcatEmbeddedServletContainer getTomcatEmbeddedServletContainer(Tomcat tomcat) 
+			protected TomcatWebServer getTomcatWebServer(Tomcat tomcat)
 			{
 				tomcat.enableNaming();
-				return super.getTomcatEmbeddedServletContainer(tomcat);
+				return super.getTomcatWebServer(tomcat);
 			}
 
 			@Override
@@ -84,8 +84,6 @@ public class AccountsApplication extends SpringBootServletInitializer {
 				context.getNamingResources().addResource(accountsDataSource);
 			}
 		};
-		
-	    return factory;
 	}
 	
 }

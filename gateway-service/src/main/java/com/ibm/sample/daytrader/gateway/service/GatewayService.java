@@ -28,6 +28,8 @@ import com.ibm.sample.daytrader.gateway.entities.*;
 import com.ibm.sample.daytrader.gateway.utils.Log;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * The remote call service to the trades services.
  * 
@@ -39,6 +41,7 @@ import org.springframework.stereotype.Service;
 public class GatewayService {
 	
 	// TODO: Inject these services to switch between local and remote call implementations
+
 	private static AccountsRemoteCallService accountsService = new AccountsRemoteCallService();
 	private static PortfoliosRemoteCallService portfoliosService = new PortfoliosRemoteCallService();
 	private static QuotesRemoteCallService quotesService = new QuotesRemoteCallService();
