@@ -256,7 +256,7 @@
 				<daytraderTruststoreLocation>${daytraderKeystoreFolder}/truststore.jks</daytraderTruststoreLocation>
 				<daytraderTruststorePassword>password</daytraderTruststorePassword>
 				<!-- Port -->
-				<serverPort>5443</serverPort>
+				<serverPort>8080</serverPort>
 				<databaseDriver>org.apache.derby.jdbc.EmbeddedDriver</databaseDriver>
 				<databaseUrl>jdbc:derby:tradesdb;create=true</databaseUrl>
 
@@ -448,7 +448,7 @@
 
 									<run>
 										<ports>
-											<port>5443:5443</port>
+											<port>5443:8080</port>
 										</ports>
 										<wait>
 											<log>Started DaytraderWebApplication</log>
