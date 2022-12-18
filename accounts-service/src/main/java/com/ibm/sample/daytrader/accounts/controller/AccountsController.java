@@ -80,7 +80,7 @@ public class AccountsController
 	// Account Related Endpoints
 	//
 	@RequestMapping(
-			value = "/admin/test",
+			value = "/accounts/test",
 			method = RequestMethod.POST,
 			consumes = "application/json"
 	)
