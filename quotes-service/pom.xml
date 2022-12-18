@@ -277,7 +277,7 @@
 				<daytraderTruststoreLocation>${daytraderKeystoreFolder}/truststore.jks</daytraderTruststoreLocation>
 				<daytraderTruststorePassword>password</daytraderTruststorePassword>
 				<!-- Port -->
-				<serverPort>4443</serverPort>
+				<serverPort>8080</serverPort>
 				<databaseDriver>org.apache.derby.jdbc.EmbeddedDriver</databaseDriver>
 				<databaseUrl>jdbc:derby:tradesdb;create=true</databaseUrl>
 
@@ -453,7 +453,7 @@
 
 									<run>
 										<ports>
-											<port>4443:4443</port>
+											<port>4443:8080</port>
 										</ports>
 										<wait>
 											<log>Started QuotesApplication</log>

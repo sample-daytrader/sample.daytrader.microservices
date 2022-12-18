@@ -284,7 +284,7 @@
                  <daytraderTruststoreLocation>${daytraderKeystoreFolder}/truststore.jks</daytraderTruststoreLocation>
                  <daytraderTruststorePassword>password</daytraderTruststorePassword>
                  <!-- Port -->
-                 <serverPort>1443</serverPort>
+                 <serverPort>8080</serverPort>
                  <databaseDriver>org.apache.derby.jdbc.EmbeddedDriver</databaseDriver>
                  <databaseUrl>jdbc:derby:tradesdb;create=true</databaseUrl>
 
@@ -445,10 +445,6 @@
                                             <tag>${project.version}</tag>
                                         </tags>
                                         <args>
-                                            <DAYTRADER_ACCOUNTS_SERVICE>${accountsServiceRoute}</DAYTRADER_ACCOUNTS_SERVICE>
-                                            <DAYTRADER_GATEWAY_SERVICE>${gatewayServiceRoute}</DAYTRADER_GATEWAY_SERVICE>
-                                            <DAYTRADER_PORTFOLIOS_SERVICE>${portfoliosServiceRoute}</DAYTRADER_PORTFOLIOS_SERVICE>
-                                            <DAYTRADER_QUOTES_SERVICE>${quotesServiceRoute}</DAYTRADER_QUOTES_SERVICE>
                                             <WAR_ARTIFACTID>${project.artifactId}</WAR_ARTIFACTID>
                                             <APP_VERSION>${project.version}</APP_VERSION>
                                             <APP_ARTIFACTID>${project.artifactId}</APP_ARTIFACTID>
@@ -459,7 +455,7 @@
                                     </build>
                                     <run>
                                         <ports>
-                                            <port>1443:1443</port>
+                                            <port>1443:8080</port>
                                         </ports>
                                         <wait>
                                             <log>Started AccountsApplication</log>

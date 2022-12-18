@@ -8,7 +8,7 @@ services:
     hostname: daytrader-web-service
     container_name: daytrader-web-service
     ports:
-      - "5443:5443"
+      - "5443:8080"
 
 
   daytrader-gateway-service:
@@ -16,7 +16,7 @@ services:
     hostname: daytrader-gateway-service
     container_name: daytrader-gateway-service
     ports:
-      - "2443:2443"
+      - "2443:8080"
 
 
   daytrader-portfolios-service:
@@ -24,14 +24,14 @@ services:
     hostname: daytrader-portfolios-service
     container_name: daytrader-portfolios-service
     ports:
-      - "3443:3443"
+      - "3443:8080"
 
   daytrader-quotes-service:
     image: daytrader-quotes-service:latest
     hostname: daytrader-quotes-service
     container_name: daytrader-quotes-service
     ports:
-      - "4443:4443"
+      - "4443:8080"
 
 
   daytrader-accounts-service:
@@ -39,7 +39,7 @@ services:
     hostname: daytrader-accounts-service
     container_name: daytrader-accounts-service
     ports:
-      - "1443:1443"
+      - "1443:8080"
 
 
   daytrader-ping-service:
@@ -47,7 +47,7 @@ services:
     hostname: daytrader-ping-service
     container_name: daytrader-ping-service
     ports:
-      - "6443:6443"
+      - "6443:8080"
     depends_on:
       - daytrader-gateway-service
       - daytrader-accounts-service

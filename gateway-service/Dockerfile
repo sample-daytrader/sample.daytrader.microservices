@@ -36,10 +36,10 @@ ENV DAYTRADER_DATABASE_PASSWORD=${DATABASE_PASSWORD}
 ENV SERVER_PORT=${EXPOSE_PORT}
 ENV SERVER_PORT_HTTPS=${EXPOSE_PORT}
 ##  4.  Routing Variables
-ENV DAYTRADER_ACCOUNTS_SERVICE=http://daytrader-accounts-service:1443
-ENV DAYTRADER_GATEWAY_SERVICE=http://daytrader-gateway-service:2443
-ENV DAYTRADER_PORTFOLIOS_SERVICE=http://daytrader-portfolios-service:3443
-ENV DAYTRADER_QUOTES_SERVICE=http://daytrader-quotes-service:4443
+ENV DAYTRADER_ACCOUNTS_SERVICE=http://daytrader-accounts-service:8080
+ENV DAYTRADER_GATEWAY_SERVICE=http://daytrader-gateway-service:8080
+ENV DAYTRADER_PORTFOLIOS_SERVICE=http://daytrader-portfolios-service:8080
+ENV DAYTRADER_QUOTES_SERVICE=http://daytrader-quotes-service:8080
 ##  5.  Logging Variables
 ENV DAYTRADER_LOG_FILENAME=/tmp/${APP_ARTIFACTID}-${APP_VERSION}.log
 ENV DAYTRADER_LOG_LEVEL=TRACE
