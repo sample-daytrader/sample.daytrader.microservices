@@ -17,31 +17,32 @@
 
 package com.ibm.sample.daytrader.portfolios;
 
-import javax.sql.DataSource;
-
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
-import org.apache.tomcat.util.descriptor.web.ContextResource;
 
+import org.apache.tomcat.util.descriptor.web.ContextResource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.embedded.tomcat.TomcatWebServer;
 import org.springframework.boot.web.servlet.ServletComponentScan;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+
+import javax.sql.DataSource;
+
 
 @ServletComponentScan(basePackages={"com.ibm.sample.daytrader.portfolios"})
 @SpringBootApplication
 public class PortfoliosApplication extends SpringBootServletInitializer {
-	
-// Added by on 2018-08-18 
-//  - Configure database environment 
-    private static String driverClassName = System.getenv("DAYTRADER_DATABASE_DRIVER");
-    private static String url = System.getenv("DAYTRADER_DATABASE_URL");
-    private static String username = System.getenv("DAYTRADER_DATABASE_USERNAME");
-    private static String password = System.getenv("DAYTRADER_DATABASE_PASSWORD");
+
+	// Added by on 2018-08-18
+	//  - Configure database environment
+	private static String driverClassName = System.getenv("DAYTRADER_DATABASE_DRIVER");
+	private static String url = System.getenv("DAYTRADER_DATABASE_URL");
+	private static String username = System.getenv("DAYTRADER_DATABASE_USERNAME");
+	private static String password = System.getenv("DAYTRADER_DATABASE_PASSWORD");
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -53,19 +54,19 @@ public class PortfoliosApplication extends SpringBootServletInitializer {
 	}
 
 	@Bean
-	public TomcatEmbeddedServletContainerFactory tomcatFactory() 
+	public TomcatServletWebServerFactory tomcatFactory()
 	{
-		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory() 
+		return new TomcatServletWebServerFactory()
 		{
 			@Override
-			protected TomcatEmbeddedServletContainer getTomcatEmbeddedServletContainer(Tomcat tomcat) 
+			protected TomcatWebServer getTomcatWebServer(Tomcat tomcat)
 			{
 				tomcat.enableNaming();
-				return super.getTomcatEmbeddedServletContainer(tomcat);
+				return super.getTomcatWebServer(tomcat);
 			}
-			
+
 			@Override
-			protected void postProcessContext(Context context) 
+			protected void postProcessContext(Context context)
 			{
 				//
 				// Portfolios Data Source
@@ -85,8 +86,6 @@ public class PortfoliosApplication extends SpringBootServletInitializer {
 				context.getNamingResources().addResource(portfoliosDataSource);
 			}
 		};
-		
-		return factory;
 	}
 }
 

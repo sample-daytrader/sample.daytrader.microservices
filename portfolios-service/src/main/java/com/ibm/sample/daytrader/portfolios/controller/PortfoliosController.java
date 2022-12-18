@@ -24,6 +24,7 @@ import com.ibm.sample.daytrader.portfolios.utils.Log;
 // Java
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.ClientErrorException;
@@ -79,6 +80,15 @@ public class PortfoliosController
 {
 	private static PortfoliosService portfoliosService = new PortfoliosService();
 
+	@RequestMapping(
+			value = "/portfolios/test",
+			method = RequestMethod.POST,
+			consumes = "application/json"
+	)
+	public ResponseEntity<String> testAPIRequest(
+			@RequestBody Map<String,String> valMap ) {
+		return new ResponseEntity<String>(valMap.get("key"), HttpStatus.OK);
+	}
 	/**
 	 * REST call to create the user's portfolio.
 	 * 
