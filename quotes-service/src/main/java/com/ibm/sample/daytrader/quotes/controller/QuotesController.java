@@ -24,6 +24,7 @@ import com.ibm.sample.daytrader.quotes.utils.Log;
 // Java
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.Map;
 
 import javax.ws.rs.NotFoundException;
 
@@ -74,7 +75,17 @@ public class QuotesController
 	//
 	// Quotes Related Endpoints
 	//
-	
+
+	@RequestMapping(
+			value = "/quotes/test",
+			method = RequestMethod.POST,
+			consumes = "application/json"
+	)
+	public ResponseEntity<String> testAPIRequest(
+			@RequestBody Map<String,String> valMap ) {
+		return new ResponseEntity<String>(valMap.get("key"), HttpStatus.OK);
+	}
+
 	/**
 	 * REST call to get the quote given the symbol.
 	 * 
