@@ -250,9 +250,10 @@ public class PortfoliosService
    			PreparedStatement stmt = null;
 			try 
 			{
-				stmt = getStatement(conn, "delete from accountejb");
-				stmt.executeUpdate();
-				stmt.close();
+				// Handled by accounts service
+				// stmt = getStatement(conn, "delete from accountejb");
+				//stmt.executeUpdate();
+				// stmt.close();
                 stmt = getStatement(conn, "delete from holdingejb");
                 stmt.executeUpdate();
                 stmt.close();
@@ -430,6 +431,14 @@ public class PortfoliosService
    			return runStatsData;
 		}
    	}
+
+   public void backupTrade(boolean deleteAll) throws Exception
+   {
+   }
+
+   public void compensateResetTrade(boolean deleteAll) throws Exception
+   {
+   }
 
     /**
  	*

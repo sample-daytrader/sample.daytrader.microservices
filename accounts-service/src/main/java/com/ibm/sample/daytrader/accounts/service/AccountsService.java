@@ -244,6 +244,14 @@ public class AccountsService
 		}
    	}
 
+   public void backupTrade(boolean deleteAll) throws Exception
+   {
+   }
+
+   public void compensateResetTrade(boolean deleteAll) throws Exception
+   {
+   }
+
    /**
 	*
 	* @see TradeDBServices#recreateDBTables(Object[],PrintWriter)
