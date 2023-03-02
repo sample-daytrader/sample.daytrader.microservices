@@ -1,0 +1,15 @@
+{{ if .Values.psp.enabled }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: daytrader
+rules:
+- apiGroups:
+  - policy
+  resourceNames:
+  - daytrader
+  resources:
+  - podsecuritypolicies
+  verbs:
+  - use
+{{ end }}
