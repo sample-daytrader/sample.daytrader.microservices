@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: daytrader-web
+  namespace: daytrader
+  labels:
+    app: daytrader-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: daytrader-web
+  template:
+    metadata:
+      labels:
+        app: daytrader-web
+    spec:
+      {{ if .Values.psp.enabled }}
+      serviceAccountName: daytrader
+      {{ end }}
+      containers:
+        - name: daytrader-web
+          image: {{ .Values.image.repo }}/daytrader-web-service:{{ .Values.image.version }}
+          env: 
+          - name: DAYTRADER_ACCOUNTS_SERVICE
+            value: "http://daytrader-accounts-service:8080"
+          - name: DAYTRADER_GATEWAY_SERVICE
+            value: "http://daytrader-gateway-service:8080"
+          - name: DAYTRADER_PORTFOLIOS_SERVICE
+            value: "http://daytrader-portfolios-service:8080"
+          - name: DAYTRADER_QUOTES_SERVICE
+            value: "http://daytrader-quotes-service:8080"
+          resources:
+            limits:
+              cpu: "1"
+            requests:
+              cpu: "1"
+          ports: 
+            - containerPort: 8080
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+      restartPolicy: Always
+      {{- with .Values.web.affinity }}
+
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.web.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.web.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

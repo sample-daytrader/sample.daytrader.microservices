@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: daytrader-web-service
+  namespace: daytrader
+spec:
+  selector:
+    app: daytrader-web
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  {{ if .Values.nodeport }}
+  type: NodePort
+  {{ else }}
+  type: LoadBalancer
+  {{ end }}
+---
+{{if .Values.ocCreateRoute}}
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: daytrader-web-service
+spec:
+  to:
+    kind: Service
+    name: daytrader-web-service
+{{end}}

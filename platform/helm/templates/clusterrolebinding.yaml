@@ -1,0 +1,14 @@
+{{ if .Values.psp.enabled }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: daytrader
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: daytrader
+subjects:
+- kind: ServiceAccount
+  name: daytrader
+  namespace: daytrader
+{{ end }}
