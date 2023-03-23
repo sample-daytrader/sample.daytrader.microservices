@@ -424,9 +424,10 @@
                         <version>0.40.2</version>
                         <configuration>
                             <verbose>true</verbose>
+                            <skip>false</skip>
                             <images>
                                 <image>
-                                    <name>${docker.image.name}</name>
+                                    <name>quay.io/daytrader/${docker.image.name}:${project.version}</name>
                                     <build>
                                         <dockerFileDir>${project.basedir}</dockerFileDir>
                                         <assembly>
@@ -447,7 +448,7 @@
                                     </build>
 
                                     <run>
-                                        <hostname>${docker.image.name}</hostname>
+                                        <hostname>quay.io/daytrader/${docker.image.name}:${project.version}</hostname>
                                         <ports>
                                             <port>3443:${serverPort}</port>
                                         </ports>
@@ -465,6 +466,7 @@
                                 <phase>package</phase>
                                 <goals>
                                     <goal>build</goal>
+                                    <goal>push</goal>
                                 </goals>
                             </execution>
                             <execution>
@@ -472,6 +474,7 @@
                                 <phase>deploy</phase>
                                 <goals>
                                     <goal>build</goal>
+                                    <goal>push</goal>
                                     <goal>run</goal>
                                 </goals>
                             </execution>

@@ -41,7 +41,7 @@ results = (String) request.getAttribute("results");
 if ( results != null )out.print(results);
 %></FONT></FONT></FONT></TD>
             <TD align="right" width="365"></TD>
-            <TD align="center" width="99"><IMG src="../../images/graph.gif" width="27"
+            <TD align="center" width="99"><IMG src="images/graph.gif" width="27"
                                                height="27" border="0" alt=""></TD>
         </TR>
     </TBODY>
@@ -105,7 +105,7 @@ if ( results != null )out.print(results);
     <TBODY>
         <TR>
             <TD colspan="2" align="center"><BR>
-            <IMG src="../../images/ticker-anim.gif" width="385" height="22" border="0"
+            <IMG src="images/ticker-anim.gif" width="385" height="22" border="0"
                  align="middle" alt=""></TD>
         </TR>
         <TR>

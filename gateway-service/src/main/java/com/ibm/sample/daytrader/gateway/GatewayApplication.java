@@ -35,7 +35,6 @@ import javax.sql.DataSource;
 @SpringBootApplication
 public class GatewayApplication extends SpringBootServletInitializer {
 	
-	//	- Each microservice has their own private database (datasource)
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

@@ -45,21 +45,21 @@
                 color="#ffffff"><B>DayTrader</B></FONT></TD>
         </TR>
         <TR align="left">
-            <TD><A href="app?action=home"><IMG src="../../images/menuHome.gif" width="80"
+            <TD><A href="app?action=home"><IMG src="images/menuHome.gif" width="80"
                                                height="20" border="0" alt=""></A></TD>
-            <TD><A href="app?action=account"><IMG src="../../images/account.gif"
+            <TD><A href="app?action=account"><IMG src="images/account.gif"
                 width="80" height="20" border="0" alt=""></A></TD>
-            <TD><B><A href="app?action=portfolio"><IMG src="../../images/portfolio.gif"
+            <TD><B><A href="app?action=portfolio"><IMG src="images/portfolio.gif"
                 width="80" height="20" border="0" alt=""></A> </B></TD>
             <TD><A href="app?action=quotes&amp;symbols=s:0,s:1,s:2,s:3,s:4"><IMG
-                    src="../../images/quotes.gif" width="80" height="20" border="0" alt=""></A></TD>
-            <TD><A href="app?action=logout"><IMG src="../../images/logout.gif"
+                    src="images/quotes.gif" width="80" height="20" border="0" alt=""></A></TD>
+            <TD><A href="app?action=logout"><IMG src="images/logout.gif"
                 width="80" height="20" border="0" alt=""></A></TD>
-            <TD><IMG src="../../images/graph.gif" width="32" height="32" border="0"
+            <TD><IMG src="images/graph.gif" width="32" height="32" border="0"
                      alt=""></TD>
         </TR>
         <TR>
-            <TD align="left" colspan="6"><IMG src="../../images/line.gif" width="600"
+            <TD align="left" colspan="6"><IMG src="images/line.gif" width="600"
                                               height="6" border="0" alt=""><FONT color="#ff0000" size="-2"><BR>
             <%= new java.util.Date() %></FONT></TD>
         </TR>
@@ -84,14 +84,14 @@ if ( (closedOrders != null) && (closedOrders.size()>0) )
         OrderDataBean closedOrderData = (OrderDataBean)it.next();
 %>
                     <TR align="center">
-                        <TD><A href="../../docs/glossary.html">order ID</A></TD>
-                        <TD><A href="../../docs/glossary.html">order status</A></TD>
-                        <TD><A href="../../docs/glossary.html">creation date</A></TD>
-                        <TD><A href="../../docs/glossary.html">completion date</A></TD>
-                        <TD><A href="../../docs/glossary.html">txn fee</A></TD>
-                        <TD><A href="../../docs/glossary.html">type</A></TD>
-                        <TD><A href="../../docs/glossary.html">symbol</A></TD>
-                        <TD><A href="../../docs/glossary.html">quantity</A></TD>
+                        <TD><A href="docs/glossary.html">order ID</A></TD>
+                        <TD><A href="docs/glossary.html">order status</A></TD>
+                        <TD><A href="docs/glossary.html">creation date</A></TD>
+                        <TD><A href="docs/glossary.html">completion date</A></TD>
+                        <TD><A href="docs/glossary.html">txn fee</A></TD>
+                        <TD><A href="docs/glossary.html">type</A></TD>
+                        <TD><A href="docs/glossary.html">symbol</A></TD>
+                        <TD><A href="docs/glossary.html">quantity</A></TD>
                     </TR>
                     <TR align="center">
                         <TD><%= closedOrderData.getOrderID()%></TD>
@@ -130,44 +130,44 @@ if ( (closedOrders != null) && (closedOrders.size()>0) )
                         Information</B></TD>
                     </TR>
                     <TR>
-                        <TD align="right" valign="bottom"><A href="../../docs/glossary.html">account
+                        <TD align="right" valign="bottom"><A href="docs/glossary.html">account
                         created:</A></TD>
                         <TD align="left" valign="bottom" colspan="2"><%= accountData.getCreationDate()
 %></TD>
-                        <TD align="right" valign="bottom"><A href="../../docs/glossary.html">last
+                        <TD align="right" valign="bottom"><A href="docs/glossary.html">last
                         login: </A></TD>
                         <TD align="left" valign="bottom" colspan="3"><%= accountData.getLastLogin()
 %></TD>
                         <TD align="left" valign="bottom"></TD>
                     </TR>
                     <TR>
-                        <TD align="right" valign="bottom"><A href="../../docs/glossary.html">account
+                        <TD align="right" valign="bottom"><A href="docs/glossary.html">account
                         ID</A></TD>
                         <TD valign="bottom"><%= accountData.getAccountID()
 %></TD>
                         <TD valign="bottom"></TD>
-                        <TD align="right" valign="bottom"><A href="../../docs/glossary.html">total
+                        <TD align="right" valign="bottom"><A href="docs/glossary.html">total
                         logins: </A></TD>
                         <TD valign="bottom"><%= accountData.getLoginCount()
 %></TD>
                         <TD valign="bottom"></TD>
-                        <TD align="right" valign="bottom"><A href="../../docs/glossary.html">cash
+                        <TD align="right" valign="bottom"><A href="docs/glossary.html">cash
                         balance: </A></TD>
                         <TD valign="bottom"><%= accountData.getBalance()
 %></TD>
                     </TR>
                     <TR>
-                        <TD align="right" valign="bottom"><A href="../../docs/glossary.html">user
+                        <TD align="right" valign="bottom"><A href="docs/glossary.html">user
                         ID:</A></TD>
                         <TD valign="bottom"><%= accountData.getProfileID()
 %></TD>
                         <TD valign="bottom"></TD>
-                        <TD align="right" valign="bottom"><A href="../../docs/glossary.html">total
+                        <TD align="right" valign="bottom"><A href="docs/glossary.html">total
                         logouts: </A></TD>
                         <TD valign="bottom"><%= accountData.getLogoutCount()
 %></TD>
                         <TD valign="bottom"></TD>
-                        <TD valign="bottom" align="right"><A href="../../docs/glossary.html">opening
+                        <TD valign="bottom" align="right"><A href="docs/glossary.html">opening
                         balance: </A></TD>
                         <TD valign="bottom"><%= accountData.getOpenBalance()
 %></TD>
@@ -192,16 +192,16 @@ if ( (closedOrders != null) && (closedOrders.size()>0) )
                             <CAPTION align="bottom"><B>Recent Orders</B></CAPTION>
                             <TBODY>
                                 <TR align="center">
-                                    <TD><A href="../../docs/glossary.html">order ID</A></TD>
-                                    <TD><A href="../../docs/glossary.html">order Status</A></TD>
-                                    <TD><A href="../../docs/glossary.html">creation date</A></TD>
-                                    <TD><A href="../../docs/glossary.html">completion date</A></TD>
-                                    <TD><A href="../../docs/glossary.html">txn fee</A></TD>
-                                    <TD><A href="../../docs/glossary.html">type</A></TD>
-                                    <TD><A href="../../docs/glossary.html">symbol</A></TD>
-                                    <TD><A href="../../docs/glossary.html">quantity</A></TD>
-                                    <TD><A href="../../docs/glossary.html">price</A></TD>
-                                    <TD><A href="../../docs/glossary.html">total</A></TD>
+                                    <TD><A href="docs/glossary.html">order ID</A></TD>
+                                    <TD><A href="docs/glossary.html">order Status</A></TD>
+                                    <TD><A href="docs/glossary.html">creation date</A></TD>
+                                    <TD><A href="docs/glossary.html">completion date</A></TD>
+                                    <TD><A href="docs/glossary.html">txn fee</A></TD>
+                                    <TD><A href="docs/glossary.html">type</A></TD>
+                                    <TD><A href="docs/glossary.html">symbol</A></TD>
+                                    <TD><A href="docs/glossary.html">quantity</A></TD>
+                                    <TD><A href="docs/glossary.html">price</A></TD>
+                                    <TD><A href="docs/glossary.html">total</A></TD>
                                 </TR>
                                 <% 
 Iterator it = orderDataBeans.iterator();
@@ -242,42 +242,42 @@ while (it.hasNext()) {
                     </TR>
                     <TR>
                         <TD align="right" valign="top" width="113"><A
-                            href="../../docs/glossary.html">user ID:</A></TD>
+                            href="docs/glossary.html">user ID:</A></TD>
                         <TD align="left" valign="top" colspan="2" width="228"><INPUT
                             size="30" type="text" maxlength="30" readonly name="userID"
                             value="<%= accountProfileData.getUserID() %>"></TD>
                         <TD align="right" valign="top" width="73" colspan="2"><A
-                            href="../../docs/glossary.html">full name: </A></TD>
+                            href="docs/glossary.html">full name: </A></TD>
                         <TD align="left" valign="top"><INPUT size="30" type="text"
                             maxlength="30" name="fullname"
                             value="<%= accountProfileData.getFullName() %>"></TD>
                     </TR>
                     <TR>
-                        <TD align="right" width="113"><A href="../../docs/glossary.html">password:
+                        <TD align="right" width="113"><A href="docs/glossary.html">password:
                         </A></TD>
                         <TD colspan="2" width="228"><INPUT size="30" type="password"
                             maxlength="30" name="password"
                             value="<%= accountProfileData.getPassword() %>"></TD>
                         <TD align="right" width="73" colspan="2"><A
-                            href="../../docs/glossary.html">address: </A></TD>
+                            href="docs/glossary.html">address: </A></TD>
                         <TD><INPUT size="30" type="text" maxlength="30" name="address"
                             value="<%= accountProfileData.getAddress() %>"></TD>
                     </TR>
                     <TR>
-                        <TD align="right" width="113"><A href="../../docs/glossary.html">confirm
+                        <TD align="right" width="113"><A href="docs/glossary.html">confirm
                         password: </A><BR>
                         </TD>
                         <TD colspan="2" align="left" width="228"><INPUT size="30"
                             type="password" maxlength="30" name="cpassword"
                             value="<%= accountProfileData.getPassword() %>"></TD>
                         <TD align="right" width="73" colspan="2"><A
-                            href="../../docs/glossary.html">credit card: </A></TD>
+                            href="docs/glossary.html">credit card: </A></TD>
                         <TD align="left"><INPUT size="30" type="text" maxlength="30"
                             name="creditcard"
                             value="<%= accountProfileData.getCreditCard() %>" readonly></TD>
                     </TR>
                     <TR>
-                        <TD align="right" width="113"><A href="../../docs/glossary.html">email
+                        <TD align="right" width="113"><A href="docs/glossary.html">email
                         address: </A></TD>
                         <TD colspan="2" align="left" width="228"><INPUT size="30"
                             type="text" maxlength="30" name="email"
@@ -309,7 +309,7 @@ while (it.hasNext()) {
             <TABLE width="100%" style="font-size: smaller">
                 <TBODY>
                     <TR>
-                        <TD>Note: Click any <A href="../../docs/glossary.html">symbol</A> for a
+                        <TD>Note: Click any <A href="docs/glossary.html">symbol</A> for a
                         quote or to trade.</TD>
                         <TD align="right">
                         <FORM action=""><INPUT type="submit" name="action" value="quotes">
@@ -328,7 +328,7 @@ while (it.hasNext()) {
                 color="#ffffff"><B>DayTrader</B></FONT></TD>
         </TR>
         <TR>
-            <TD colspan="4" align="center"><IMG src="../../images/ticker-anim.gif"
+            <TD colspan="4" align="center"><IMG src="images/ticker-anim.gif"
                 width="385" height="22" border="0" align="middle" alt=""></TD>
         </TR>
     </TBODY>

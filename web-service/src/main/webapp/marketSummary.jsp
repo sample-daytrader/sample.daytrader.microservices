@@ -39,26 +39,26 @@ MarketSummaryDataBean marketSummaryData = tAction.getMarketSummary();
         </TR>
         <TR>
             <TD align="right" bgcolor="#fafcb6" height="47" width="100"><A
-                href="docs/glossary.html">DayTrader Stock Index (TSIA)</A></TD>
+                href="../../docs/glossary.html">DayTrader Stock Index (TSIA)</A></TD>
             <TD align="center" valign="middle" bgcolor="#ffffff" height="47"
                 width="141"><%= marketSummaryData.getTSIA() %> <%= FinancialUtils.printGainPercentHTML(marketSummaryData.getGainPercent()) %></TD>
         </TR>
         <TR>
-            <TD align="right" bgcolor="#fafcb6"><A href="docs/glossary.html">Trading
+            <TD align="right" bgcolor="#fafcb6"><A href="../../docs/glossary.html">Trading
             Volume</A></TD>
             <TD align="center" valign="middle"><%= marketSummaryData.getVolume() %></TD>
         </TR>
         <TR>
             <TD align="right" bgcolor="#fafcb6" width="74"><A
-                href="docs/glossary.html">Top Gainers</A></TD>
+                href="../../docs/glossary.html">Top Gainers</A></TD>
             <TD bgcolor="#ffffff">
             <TABLE width="100%" border="1" height="100%"
                 style="font-size: smaller">
                 <TBODY>
                     <TR align="center">
-                        <TD><A href="docs/glossary.html">symbol</A></TD>
-                        <TD><A href="docs/glossary.html">price</A></TD>
-                        <TD><A href="docs/glossary.html">change</A></TD>
+                        <TD><A href="../../docs/glossary.html">symbol</A></TD>
+                        <TD><A href="../../docs/glossary.html">price</A></TD>
+                        <TD><A href="../../docs/glossary.html">change</A></TD>
                     </TR>
                     <%                              
 Collection topGainers = marketSummaryData.getTopGainers();
@@ -83,15 +83,15 @@ while (gainers.hasNext() && (count++ < 5))
         </TR>
         <TR>
             <TD align="right" height="55" bgcolor="#fafcb6" width="74"><A
-                href="docs/glossary.html">Top Losers</A></TD>
+                href="../../docs/glossary.html">Top Losers</A></TD>
             <TD height="55" bgcolor="#ffffff" width="141">
             <TABLE width="100%" border="1" height="100%"
                 style="font-size: smaller">
                 <TBODY>
                     <TR align="center">
-                        <TD><A href="docs/glossary.html">symbol</A></TD>
-                        <TD><A href="docs/glossary.html">price</A></TD>
-                        <TD><A href="docs/glossary.html">change</A></TD>
+                        <TD><A href="../../docs/glossary.html">symbol</A></TD>
+                        <TD><A href="../../docs/glossary.html">price</A></TD>
+                        <TD><A href="../../docs/glossary.html">change</A></TD>
                     </TR>
                     <%
 Collection topLosers = marketSummaryData.getTopLosers();

@@ -44,21 +44,21 @@
                 color="#ffffff"><B>DayTrader</B></FONT></TD>
         </TR>
         <TR align="left">
-            <TD><A href="app?action=home"><IMG src="../../images/menuHome.gif" width="80"
+            <TD><A href="app?action=home"><IMG src="images/menuHome.gif" width="80"
                                                height="20" border="0" alt=""></A></TD>
-            <TD><A href="app?action=account"><IMG src="../../images/account.gif"
+            <TD><A href="app?action=account"><IMG src="images/account.gif"
                 width="80" height="20" border="0" alt=""></A></TD>
-            <TD><B><A href="app?action=portfolio"><IMG src="../../images/portfolio.gif"
+            <TD><B><A href="app?action=portfolio"><IMG src="images/portfolio.gif"
                 width="80" height="20" border="0" alt=""></A> </B></TD>
             <TD><A href="app?action=quotes&amp;symbols=s:0,s:1,s:2,s:3,s:4"><IMG
-                    src="../../images/quotes.gif" width="80" height="20" border="0" alt=""></A></TD>
-            <TD><A href="app?action=logout"><IMG src="../../images/logout.gif"
+                    src="images/quotes.gif" width="80" height="20" border="0" alt=""></A></TD>
+            <TD><A href="app?action=logout"><IMG src="images/logout.gif"
                 width="80" height="20" border="0" alt=""></A></TD>
-            <TD><IMG src="../../images/graph.gif" width="32" height="32" border="0"
+            <TD><IMG src="images/graph.gif" width="32" height="32" border="0"
                      alt=""></TD>
         </TR>
         <TR>
-            <TD align="left" colspan="6"><IMG src="../../images/line.gif" width="600"
+            <TD align="left" colspan="6"><IMG src="images/line.gif" width="600"
                                               height="6" border="0" alt=""><BR>
             <FONT color="#ff0000" size="-2"><%= new java.util.Date() %></FONT></TD>
         </TR>
@@ -82,14 +82,14 @@ if ( (closedOrders != null) && (closedOrders.size()>0) )
         OrderDataBean closedOrderData = (OrderDataBean)it.next();
 %>
                     <TR align="center">
-                        <TD><A href="../../docs/glossary.html">order ID</A></TD>
-                        <TD><A href="../../docs/glossary.html">order status</A></TD>
-                        <TD><A href="../../docs/glossary.html">creation date</A></TD>
-                        <TD><A href="../../docs/glossary.html">completion date</A></TD>
-                        <TD><A href="../../docs/glossary.html">txn fee</A></TD>
-                        <TD><A href="../../docs/glossary.html">type</A></TD>
-                        <TD><A href="../../docs/glossary.html">symbol</A></TD>
-                        <TD><A href="../../docs/glossary.html">quantity</A></TD>
+                        <TD><A href="docs/glossary.html">order ID</A></TD>
+                        <TD><A href="docs/glossary.html">order status</A></TD>
+                        <TD><A href="docs/glossary.html">creation date</A></TD>
+                        <TD><A href="docs/glossary.html">completion date</A></TD>
+                        <TD><A href="docs/glossary.html">txn fee</A></TD>
+                        <TD><A href="docs/glossary.html">type</A></TD>
+                        <TD><A href="docs/glossary.html">symbol</A></TD>
+                        <TD><A href="docs/glossary.html">quantity</A></TD>
                     </TR>
                     <TR align="center">
                         <TD><%= closedOrderData.getOrderID()%></TD>
@@ -133,16 +133,16 @@ if ( (closedOrders != null) && (closedOrders.size()>0) )
                             <CAPTION align="bottom"><B>Portfolio </B></CAPTION>
                             <TBODY>
                                 <TR align="center">
-                                    <TD><A href="../../docs/glossary.html">holding ID</A></TD>
-                                    <TD><A href="../../docs/glossary.html">purchase date</A></TD>
-                                    <TD><A href="../../docs/glossary.html">symbol</A></TD>
-                                    <TD><A href="../../docs/glossary.html">quantity</A></TD>
-                                    <TD><A href="../../docs/glossary.html">purchase price</A></TD>
-                                    <TD><A href="../../docs/glossary.html">current price</A></TD>
-                                    <TD><A href="../../docs/glossary.html">purchase basis</A></TD>
-                                    <TD><A href="../../docs/glossary.html">market value</A></TD>
-                                    <TD><A href="../../docs/glossary.html">gain/(loss)</A></TD>
-                                    <TD><B><A href="../../docs/glossary.html">trade</A></B></TD>
+                                    <TD><A href="docs/glossary.html">holding ID</A></TD>
+                                    <TD><A href="docs/glossary.html">purchase date</A></TD>
+                                    <TD><A href="docs/glossary.html">symbol</A></TD>
+                                    <TD><A href="docs/glossary.html">quantity</A></TD>
+                                    <TD><A href="docs/glossary.html">purchase price</A></TD>
+                                    <TD><A href="docs/glossary.html">current price</A></TD>
+                                    <TD><A href="docs/glossary.html">purchase basis</A></TD>
+                                    <TD><A href="docs/glossary.html">market value</A></TD>
+                                    <TD><A href="docs/glossary.html">gain/(loss)</A></TD>
+                                    <TD><B><A href="docs/glossary.html">trade</A></B></TD>
                                 </TR>
                                 <% // Create Hashmap for quick lookup of quote values
 Iterator it = quoteDataBeans.iterator();
@@ -236,7 +236,7 @@ catch (Exception e)
             <TABLE width="100%" style="font-size: smaller">
                 <TBODY>
                     <TR>
-                        <TD>Note: Click any <A href="../../docs/glossary.html">symbol</A> for a
+                        <TD>Note: Click any <A href="docs/glossary.html">symbol</A> for a
                         quote or to trade.</TD>
                         <TD align="right">
                         <FORM action=""><INPUT type="submit" name="action" value="quotes">
