@@ -4,7 +4,7 @@ name: daytrader-microservices
 
 services:
   daytrader-web-service:
-    image: daytrader-web-service:latest
+    image: quay.io/daytrader/daytrader-web-service:latest
     hostname: daytrader-web-service
     container_name: daytrader-web-service
     ports:
@@ -12,7 +12,7 @@ services:
 
 
   daytrader-gateway-service:
-    image: daytrader-gateway-service:latest
+    image: quay.io/daytrader/daytrader-gateway-service:latest
     hostname: daytrader-gateway-service
     container_name: daytrader-gateway-service
     ports:
@@ -20,14 +20,14 @@ services:
 
 
   daytrader-portfolios-service:
-    image: daytrader-portfolios-service:latest
+    image: quay.io/daytrader/daytrader-portfolios-service:latest
     hostname: daytrader-portfolios-service
     container_name: daytrader-portfolios-service
     ports:
       - "3443:8080"
 
   daytrader-quotes-service:
-    image: daytrader-quotes-service:latest
+    image: quay.io/daytrader/daytrader-quotes-service:latest
     hostname: daytrader-quotes-service
     container_name: daytrader-quotes-service
     ports:
@@ -35,22 +35,8 @@ services:
 
 
   daytrader-accounts-service:
-    image: daytrader-accounts-service:latest
+    image: quay.io/daytrader/daytrader-accounts-service:latest
     hostname: daytrader-accounts-service
     container_name: daytrader-accounts-service
     ports:
       - "1443:8080"
-
-
-  daytrader-ping-service:
-    image: daytrader-ping-service:latest
-    hostname: daytrader-ping-service
-    container_name: daytrader-ping-service
-    ports:
-      - "6443:8080"
-    depends_on:
-      - daytrader-gateway-service
-      - daytrader-accounts-service
-      - daytrader-portfolios-service
-      - daytrader-quotes-service
-      - daytrader-web-service

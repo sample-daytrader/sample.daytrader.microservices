@@ -29,25 +29,25 @@
     <servlet>
         <display-name>register</display-name>
         <servlet-name>register</servlet-name>
-        <jsp-file>/WEB-INF/jsp/register.jsp</jsp-file>
+        <jsp-file>register.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <display-name>welcome</display-name>
         <servlet-name>welcome</servlet-name>
-        <jsp-file>/WEB-INF/jsp/welcome.jsp</jsp-file>
+        <jsp-file>welcome.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <display-name>order</display-name>
         <servlet-name>order</servlet-name>
-        <jsp-file>/WEB-INF/jsp/order.jsp</jsp-file>
+        <jsp-file>order.jsp</jsp-file>
     </servlet>
 
     <servlet>
         <display-name>tradehome</display-name>
         <servlet-name>tradehome</servlet-name>
-        <jsp-file>/WEB-INF/jsp/tradehome.jsp</jsp-file>
+        <jsp-file>tradehome.jsp</jsp-file>
     </servlet>
 
 </web-app>

@@ -33,18 +33,18 @@
                 <TD bgcolor="#c93333" align="left" width="640" height="10" colspan=5><B><FONT
                 color="#ffffff">DayTrader New Orders</FONT></B></TD>
             <TD align="center" bgcolor="#ffffff" width="100" height="10">
-                <IMG src="../../images/spacer.gif" width="45" height="19" border="0"></TD>
+                <IMG src="images/spacer.gif" width="45" height="19" border="0"></TD>
         </TR>
         <TR align="left">
-            <TD><A href="app?action=home"><IMG src="../../images/home.gif" width="80" height="20" border="0"></A></TD>
-            <TD><A href="app?action=account"><IMG src="../../images/account.gif" width="80" height="20" border="0"></A></TD>
-            <TD><B><A href="app?action=portfolio"><IMG src="../../images/portfolio.gif" width="80" height="20" border="0"></A> </B></TD>
-            <TD><A href="app?action=quotes&symbols=s:0,s:1,s:2,s:3,s:4"><IMG src="../../images/quotes.gif" width="80" height="20" border="0"></A></TD>
-            <TD><A href="app?action=logout"><IMG src="../../images/logout.gif" width="80" height="20" border="0"></A></TD>
-            <TD><IMG src="../../images/graph.gif" width="32" height="32" border="0"></TD>
+            <TD><A href="app?action=home"><IMG src="images/home.gif" width="80" height="20" border="0"></A></TD>
+            <TD><A href="app?action=account"><IMG src="images/account.gif" width="80" height="20" border="0"></A></TD>
+            <TD><B><A href="app?action=portfolio"><IMG src="images/portfolio.gif" width="80" height="20" border="0"></A> </B></TD>
+            <TD><A href="app?action=quotes&symbols=s:0,s:1,s:2,s:3,s:4"><IMG src="images/quotes.gif" width="80" height="20" border="0"></A></TD>
+            <TD><A href="app?action=logout"><IMG src="images/logout.gif" width="80" height="20" border="0"></A></TD>
+            <TD><IMG src="images/graph.gif" width="32" height="32" border="0"></TD>
         </TR>
         <TR>
-            <TD align="left" colspan="6"><IMG src="../../images/line.gif" width="600" height="6" border="0"><FONT color="#ff0000" size="-2"><BR>
+            <TD align="left" colspan="6"><IMG src="images/line.gif" width="600" height="6" border="0"><FONT color="#ff0000" size="-2"><BR>
             <%= new java.util.Date() %></FONT></TD>
         </TR>
 <%
@@ -181,7 +181,7 @@ if ( (closedOrders != null) && (closedOrders.size()>0) )
                 <TD bgcolor="#c93333" align="left" width="640" height="10"><B><FONT
                 color="#ffffff">DayTrader New Orders</FONT></B></TD>
             <TD align="center" bgcolor="#ffffff" width="100" height="10">
-                <IMG src="../../images/spacer.gif" width="45" height="19" border="0"></TD>
+                <IMG src="images/spacer.gif" width="45" height="19" border="0"></TD>
         </TR>
     </TBODY>
 </TABLE>

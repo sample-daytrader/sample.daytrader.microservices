@@ -75,7 +75,7 @@ if (status != null) {
 			on&nbsp;server restart. To make configuration settings persistent
 			across application server stop/starts, edit the servlet init
 			parameters for each DayTrader servlet. This is described in the <A
-				href="docs/tradeFAQ.html">DayTrader FAQ</A>.<BR>
+				href="../../docs/tradeFAQ.html">DayTrader FAQ</A>.<BR>
 			<HR>
 			</TD>
 		</TR>
@@ -101,7 +101,7 @@ for (int i = 0; i < names.length; i++) {
 			Run Time Mode determines server implementation of the TradeServices
 			to use in the DayTrader application Enterprise Java Beans including
 			Session, Entity and Message beans or Direct mode which uses direct
-			database and JMS access. See <A href="docs/tradeFAQ.html">DayTrader
+			database and JMS access. See <A href="../../docs/tradeFAQ.html">DayTrader
 			FAQ</A> for details.<BR>
 			</TD>
 		</TR>
@@ -155,7 +155,7 @@ for (int i = 0; i < names.length; i++) {
 			Order Processing Mode determines the mode for completing stock
 			purchase and sell operations. Synchronous mode completes the order
 			immediately. Asychronous_2-Phase performs a 2-phase commit over the EJB Entity/DB
- 			and MDB/JMS transactions. See <A href="docs/tradeFAQ.html">DayTrader
+ 			and MDB/JMS transactions. See <A href="../../docs/tradeFAQ.html">DayTrader
  			FAQ</A> for details. <B></B><BR>
  			</TD>
 		</TR>
@@ -180,7 +180,7 @@ for (int i = 0; i < names.length; i++) {
 			</TD>
 			<TD>This setting determines the runtime workload mix of DayTrader
 			operations when driving the benchmark through TradeScenarioServlet.
-			See <A href="docs/tradeFAQ.html">DayTrader FAQ</A> for details.</TD>
+			See <A href="../../docs/tradeFAQ.html">DayTrader FAQ</A> for details.</TD>
 		</TR>
 		<TR>
 			<TD align="left"><B>WebInterface</B>

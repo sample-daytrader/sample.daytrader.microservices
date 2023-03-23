@@ -71,14 +71,14 @@ if ( (closedOrders != null) && (closedOrders.size()>0) )
         OrderDataBean closedOrderData = (OrderDataBean)it.next();
 %>                            
                                 <TR align="center">
-                                    <TD><A href="../../docs/glossary.html">order ID</A></TD>
-                                    <TD><A href="../../docs/glossary.html">order status</A></TD>
-                                    <TD><A href="../../docs/glossary.html">creation date</A></TD>
-                                    <TD><A href="../../docs/glossary.html">completion date</A></TD>
-                                    <TD><A href="../../docs/glossary.html">txn fee</A></TD>
-                                    <TD><A href="../../docs/glossary.html">type</A></TD>
-                                    <TD><A href="../../docs/glossary.html">symbol</A></TD>
-                                    <TD><A href="../../docs/glossary.html">quantity</A></TD>
+                                    <TD><A href="docs/glossary.html">order ID</A></TD>
+                                    <TD><A href="docs/glossary.html">order status</A></TD>
+                                    <TD><A href="docs/glossary.html">creation date</A></TD>
+                                    <TD><A href="docs/glossary.html">completion date</A></TD>
+                                    <TD><A href="docs/glossary.html">txn fee</A></TD>
+                                    <TD><A href="docs/glossary.html">type</A></TD>
+                                    <TD><A href="docs/glossary.html">symbol</A></TD>
+                                    <TD><A href="docs/glossary.html">quantity</A></TD>
                                 </TR>
                                 <TR align="center">
                         <TD><%= closedOrderData.getOrderID()%></TD>
@@ -122,16 +122,16 @@ if ( (closedOrders != null) && (closedOrders.size()>0) )
                             <CAPTION align="bottom"><B>Portfolio </B></CAPTION>
                             <TBODY>
                                 <TR align="center">
-                                    <TD><A href="../../docs/glossary.html">holding ID</A></TD>
-                                    <TD><A href="../../docs/glossary.html">purchase date</A></TD>
-                                    <TD><A href="../../docs/glossary.html">symbol</A></TD>
-                                    <TD><A href="../../docs/glossary.html">quantity</A></TD>
-                                    <TD><A href="../../docs/glossary.html">purchase price</A></TD>
-                                    <TD><A href="../../docs/glossary.html">current price</A></TD>
-                                    <TD><A href="../../docs/glossary.html">purchase basis</A></TD>
-                                    <TD><A href="../../docs/glossary.html">market value</A></TD>
-                                    <TD><A href="../../docs/glossary.html">gain/(loss)</A></TD>
-                                    <TD><B><A href="../../docs/glossary.html">trade</A></B></TD>
+                                    <TD><A href="docs/glossary.html">holding ID</A></TD>
+                                    <TD><A href="docs/glossary.html">purchase date</A></TD>
+                                    <TD><A href="docs/glossary.html">symbol</A></TD>
+                                    <TD><A href="docs/glossary.html">quantity</A></TD>
+                                    <TD><A href="docs/glossary.html">purchase price</A></TD>
+                                    <TD><A href="docs/glossary.html">current price</A></TD>
+                                    <TD><A href="docs/glossary.html">purchase basis</A></TD>
+                                    <TD><A href="docs/glossary.html">market value</A></TD>
+                                    <TD><A href="docs/glossary.html">gain/(loss)</A></TD>
+                                    <TD><B><A href="docs/glossary.html">trade</A></B></TD>
                                 </TR>
                                 <% // Create Hashmap for quick lookup of quote values
 Iterator it = quoteDataBeans.iterator();
@@ -224,7 +224,7 @@ catch (Exception e)
             <TABLE width="100%" style="font-size: smaller">
                 <TBODY>
                     <TR>
-                        <TD>Note: Click any <A href="../../docs/glossary.html">symbol</A> for a quote or to trade.</TD>
+                        <TD>Note: Click any <A href="docs/glossary.html">symbol</A> for a quote or to trade.</TD>
                         <TD align="right"><FORM><INPUT type="submit" name="action" value="quotes"> <INPUT size="20" type="text" name="symbols" value="s:0, s:1, s:2, s:3, s:4"></FORM></TD>
                     </TR>
                 </TBODY>

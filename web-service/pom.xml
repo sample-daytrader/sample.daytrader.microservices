@@ -358,60 +358,60 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-antrun-plugin</artifactId>
-						<executions>
+<!--						<executions>-->
 
-							<!-- pre-integration-test: start the application -->
-							<execution>
-								<id>statup-application</id>
-								<phase>pre-integration-test</phase>
-								<configuration>
-									<target>
-										<condition property="buildScript" value="start_server.bat" else="start_server.sh">
-											<os family="windows"/>
-										</condition>
-										<echo>Starting ${project.basedir}/env/external/springboot/bin/${buildScript}</echo>
-										<exec executable="${project.basedir}/env/external/springboot/bin/${buildScript}" spawn="true">
-										</exec>
-									</target>
-								</configuration>
-								<goals>
-									<goal>run</goal>
-								</goals>
-							</execution>
+<!--							&lt;!&ndash; pre-integration-test: start the application &ndash;&gt;-->
+<!--							<execution>-->
+<!--								<id>statup-application</id>-->
+<!--								<phase>pre-integration-test</phase>-->
+<!--								<configuration>-->
+<!--									<target>-->
+<!--										<condition property="buildScript" value="start_server.bat" else="start_server.sh">-->
+<!--											<os family="windows"/>-->
+<!--										</condition>-->
+<!--										<echo>Starting ${project.basedir}/env/external/springboot/bin/${buildScript}</echo>-->
+<!--										<exec executable="${project.basedir}/env/external/springboot/bin/${buildScript}" spawn="true">-->
+<!--										</exec>-->
+<!--									</target>-->
+<!--								</configuration>-->
+<!--								<goals>-->
+<!--									<goal>run</goal>-->
+<!--								</goals>-->
+<!--							</execution>-->
 
-							<!-- pre-integration-test: wait for the application to start -->
-							<execution>
-								<id>wait-for-application-to-start</id>
-								<phase>pre-integration-test</phase>
-								<configuration>
-									<target>
-										<sleep seconds="20" />
-									</target>
-								</configuration>
-								<goals>
-									<goal>run</goal>
-								</goals>
-							</execution>
+<!--							&lt;!&ndash; pre-integration-test: wait for the application to start &ndash;&gt;-->
+<!--							<execution>-->
+<!--								<id>wait-for-application-to-start</id>-->
+<!--								<phase>pre-integration-test</phase>-->
+<!--								<configuration>-->
+<!--									<target>-->
+<!--										<sleep seconds="20" />-->
+<!--									</target>-->
+<!--								</configuration>-->
+<!--								<goals>-->
+<!--									<goal>run</goal>-->
+<!--								</goals>-->
+<!--							</execution>-->
 
-							<!-- post-integration-test: Stop the application -->
-							<execution>
-								<id>shutdown-application</id>
-								<phase>post-integration-test</phase>
-								<configuration>
-									<target>
-										<condition property="buildScript" value="stop_server.bat" else="stop_server.sh">
-											<os family="windows"/>
-										</condition>
-										<echo>Starting ${project.basedir}/env/external/springboot/bin/${buildScript}</echo>
-										<exec executable="${project.basedir}/env/external/springboot/bin/${buildScript}" spawn="true">
-										</exec>
-									</target>
-								</configuration>
-								<goals>
-									<goal>run</goal>
-								</goals>
-							</execution>
-						</executions>
+<!--							&lt;!&ndash; post-integration-test: Stop the application &ndash;&gt;-->
+<!--							<execution>-->
+<!--								<id>shutdown-application</id>-->
+<!--								<phase>post-integration-test</phase>-->
+<!--								<configuration>-->
+<!--									<target>-->
+<!--										<condition property="buildScript" value="stop_server.bat" else="stop_server.sh">-->
+<!--											<os family="windows"/>-->
+<!--										</condition>-->
+<!--										<echo>Starting ${project.basedir}/env/external/springboot/bin/${buildScript}</echo>-->
+<!--										<exec executable="${project.basedir}/env/external/springboot/bin/${buildScript}" spawn="true">-->
+<!--										</exec>-->
+<!--									</target>-->
+<!--								</configuration>-->
+<!--								<goals>-->
+<!--									<goal>run</goal>-->
+<!--								</goals>-->
+<!--							</execution>-->
+<!--						</executions>-->
 					</plugin>
 					<!-- Construct a docker container out of the build artifacts -->
 					<plugin>
@@ -420,9 +420,10 @@
 						<version>0.40.2</version>
 						<configuration>
 							<verbose>true</verbose>
+							<skip>false</skip>
 							<images>
 								<image>
-									<name>${docker.image.name}</name>
+									<name>quay.io/daytrader/${docker.image.name}:${project.version}</name>
 									<build>
 										<dockerFileDir>${project.basedir}</dockerFileDir>
 										<assembly>
@@ -471,7 +472,7 @@
 								<phase>deploy</phase>
 								<goals>
 									<goal>build</goal>
-									<goal>run</goal>
+									<goal>push</goal>
 								</goals>
 							</execution>
 						</executions>

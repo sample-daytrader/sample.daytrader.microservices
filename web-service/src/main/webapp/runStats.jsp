@@ -117,31 +117,31 @@ if ( status != null )out.print(status);
                                     <TD colspan="3"><B>Value </B></TD>
                                 </TR>
                                 <TR>
-                                    <TD colspan="2"><A href="../../docs/glossary.html">Run-Time Mode</A></TD>
+                                    <TD colspan="2"><A href="docs/glossary.html">Run-Time Mode</A></TD>
                                     <TD colspan="3"><B><%= (TradeConfig.getRunTimeModeNames())[TradeConfig.runTimeMode] %></B></TD>
                                 </TR>
                                 <TR>
-                                    <TD colspan="2"><A href="../../docs/glossary.html">Order-Processing
+                                    <TD colspan="2"><A href="docs/glossary.html">Order-Processing
                                     Mode</A></TD>
                                     <TD colspan="3"><B><%= (TradeConfig.getOrderProcessingModeNames())[TradeConfig.orderProcessingMode]%></B></TD>
                                 </TR>
                                 <TR>
-                                    <TD colspan="2"><A href="../../docs/glossary.html">Scenario Workload
+                                    <TD colspan="2"><A href="docs/glossary.html">Scenario Workload
                                     Mix</A></TD>
                                     <TD colspan="3"><B><%= (TradeConfig.getWorkloadMixNames())[TradeConfig.workloadMix]%></B></TD>
                                 </TR>
                                 <TR>
-                                    <TD colspan="2"><A href="../../docs/glossary.html">Web Interface</A></TD>
+                                    <TD colspan="2"><A href="docs/glossary.html">Web Interface</A></TD>
                                     <TD colspan="3"><B><%= (TradeConfig.getWebInterfaceNames())[TradeConfig.webInterface]%></B></TD>
                                 </TR>
                                 <TR>
-                                    <TD colspan="2"><A href="../../docs/glossary.html">Active Traders /
+                                    <TD colspan="2"><A href="docs/glossary.html">Active Traders /
                                     Trade User population</A></TD>
                                     <TD colspan="3"><B><%= runStatsData.getTradeUserCount() %> / <%= TradeConfig.getMAX_USERS() %>
                                     </B></TD>
                                 </TR>
                                 <TR>
-                                    <TD colspan="2"><A href="../../docs/glossary.html">Active Stocks /
+                                    <TD colspan="2"><A href="docs/glossary.html">Active Stocks /
                                     Trade Stock population</A></TD>
                                     <TD colspan="3"><B><%= TradeConfig.getMAX_QUOTES() %> / <%= runStatsData.getTradeStockCount() %></B></TD>
                                 </TR>
@@ -165,7 +165,7 @@ if ( status != null )out.print(status);
                                     <TD><%= ( runStatsData.getTradeStockCount() == TradeConfig.getMAX_QUOTES() ) ? "Pass":"Warn" %></TD>
                                 </TR>
                                 <TR bgcolor="#ffffff">
-                                    <TD><A href="../../docs/glossary.html">Active Traders</A></TD>
+                                    <TD><A href="docs/glossary.html">Active Traders</A></TD>
                                     <TD>Active traders should generally equal the db population of
                                     traders</TD>
                                     <TD><%= runStatsData.getTradeUserCount() %></TD>
@@ -173,7 +173,7 @@ if ( status != null )out.print(status);
                                     <TD><%= ( runStatsData.getTradeUserCount() == TradeConfig.getMAX_USERS() ) ? "Pass":"Warn" %></TD>
                                 </TR>
                                 <TR>
-                                    <TD><A href="../../docs/glossary.html">Estimated total requests</A></TD>
+                                    <TD><A href="docs/glossary.html">Estimated total requests</A></TD>
                                     <TD>Actual benchmark scenario requests should be within +/- 2%
                                     of the estimated number of requests in the last benchmark run
                                     to pass.</TD>
@@ -182,7 +182,7 @@ if ( status != null )out.print(status);
                                     <TD>see<SUP>2</SUP></TD>
                                 </TR>
                                 <TR>
-                                    <TD><A href="../../docs/glossary.html">New Users Registered </A></TD>
+                                    <TD><A href="docs/glossary.html">New Users Registered </A></TD>
                                     <TD><%= registerPercentage * 100 %>% of expected requests (<%= registerPercentage%>
                                     * <%= expectedRequests %> )</TD>
                                     <TD><%= registerPercentage * expectedRequests %></TD>
@@ -190,7 +190,7 @@ if ( status != null )out.print(status);
                                     <TD><%= verify(registerPercentage * expectedRequests, (double)runStatsData.getNewUserCount(), verifyPercent) %></TD>
                                 </TR>
                                 <TR>
-                                    <TD><A href="../../docs/glossary.html">Logins </A></TD>
+                                    <TD><A href="docs/glossary.html">Logins </A></TD>
                                     <TD><%= loginPercentage * 100 %>% of expected requests (<%= loginPercentage%>
                                     * <%= expectedRequests %> ) + initial login</TD>
                                     <TD><%= loginPercentage * expectedRequests + runStatsData.getTradeUserCount()  %></TD>
@@ -198,7 +198,7 @@ if ( status != null )out.print(status);
                                     <TD><%= verify((double)loginPercentage * expectedRequests, (double)runStatsData.getSumLoginCount(), verifyPercent)%></TD>
                                 </TR>
                                 <TR>
-                                    <TD><A href="../../docs/glossary.html">Logouts </A></TD>
+                                    <TD><A href="docs/glossary.html">Logouts </A></TD>
                                     <TD>#logouts must be &gt;= #logins-active traders ( <%= runStatsData.getSumLoginCount() %>
                                     - <%= TradeConfig.getMAX_USERS() %> )</TD>
                                     <TD><%= runStatsData.getSumLoginCount()- TradeConfig.getMAX_USERS() %></TD>
@@ -207,7 +207,7 @@ if ( status != null )out.print(status);
                                     </TD>
                                 </TR>
                                 <TR>
-                                    <TD><A href="../../docs/glossary.html">User Holdings </A></TD>
+                                    <TD><A href="docs/glossary.html">User Holdings </A></TD>
                                     <TD>Trade users own an average of 5 holdings, 5* total Users =
                                     ( 5 * <%= runStatsData.getTradeUserCount() %>)</TD>
                                     <TD><%= 5 * runStatsData.getTradeUserCount() %></TD>
@@ -215,7 +215,7 @@ if ( status != null )out.print(status);
                                     <TD><%= verify( 5 * runStatsData.getTradeUserCount(), runStatsData.getHoldingCount(), verifyPercent ) %></TD>
                                 </TR>
                                 <TR>
-                                    <TD><A href="../../docs/glossary.html">Buy Order Count </A></TD>
+                                    <TD><A href="docs/glossary.html">Buy Order Count </A></TD>
                                     <TD><%= buyOrderPercentage * 100 %>% of expected requests (<%= buyOrderPercentage%>
                                     * <%= expectedRequests %> ) + current holdings count</TD>
                                     <TD><%= buyOrderPercentage * expectedRequests + runStatsData.getHoldingCount() %></TD>
@@ -223,7 +223,7 @@ if ( status != null )out.print(status);
                                     <TD><%= verify(buyOrderPercentage * expectedRequests + runStatsData.getHoldingCount() , (double)runStatsData.getBuyOrderCount(), verifyPercent)%></TD>
                                 </TR>
                                 <TR>
-                                    <TD><A href="../../docs/glossary.html">Sell Order Count </A></TD>
+                                    <TD><A href="docs/glossary.html">Sell Order Count </A></TD>
                                     <TD><%= sellOrderPercentage * 100 %>% of expected requests (<%= sellOrderPercentage%>
                                     * <%= expectedRequests %> )</TD>
                                     <TD><%= sellOrderPercentage * expectedRequests %></TD>
@@ -231,7 +231,7 @@ if ( status != null )out.print(status);
                                     <TD><%= verify(sellOrderPercentage * expectedRequests, (double)runStatsData.getSellOrderCount(), verifyPercent)%></TD>
                                 </TR>
                                 <TR>
-                                    <TD><A href="../../docs/glossary.html">Total Order Count </A></TD>
+                                    <TD><A href="docs/glossary.html">Total Order Count </A></TD>
                                     <TD><%= orderPercentage * 100 %>% of expected requests (<%= orderPercentage%>
                                     * <%= expectedRequests %> ) + current holdings count</TD>
                                     <TD><%= orderPercentage * expectedRequests + runStatsData.getHoldingCount() %></TD>
@@ -239,14 +239,14 @@ if ( status != null )out.print(status);
                                     <TD><%= verify(orderPercentage * expectedRequests + runStatsData.getHoldingCount(), (double)runStatsData.getOrderCount(), verifyPercent)%></TD>
                                 </TR>
                                 <TR>
-                                    <TD><A href="../../docs/glossary.html">Open Orders </A></TD>
+                                    <TD><A href="docs/glossary.html">Open Orders </A></TD>
                                     <TD>All orders should be completed before reset<SUP>3</SUP></TD>
                                     <TD>0</TD>
                                     <TD><B><%= runStatsData.getOpenOrderCount() %></B></TD>
                                     <TD><%= (runStatsData.getOpenOrderCount() > 0) ? "Fail<SUP>4</SUP>" : "Pass" %></TD>
                                 </TR>
                                 <TR>
-                                    <TD><A href="../../docs/glossary.html">Cancelled Orders </A></TD>
+                                    <TD><A href="docs/glossary.html">Cancelled Orders </A></TD>
                                     <TD>Orders are cancelled if an error is encountered during
                                     order processing.</TD>
                                     <TD>0</TD>
@@ -254,7 +254,7 @@ if ( status != null )out.print(status);
                                     <TD><%= (runStatsData.getCancelledOrderCount() > 0) ? "Fail<SUP>4</SUP>" : "Pass" %></TD>
                                 </TR>
                                 <TR>
-                                    <TD><A href="../../docs/glossary.html">Orders remaining after reset </A></TD>
+                                    <TD><A href="docs/glossary.html">Orders remaining after reset </A></TD>
                                     <TD>After Trade reset, each user should carry an average of 5
                                     orders in the database. 5* total Users = (5 * <%= runStatsData.getTradeUserCount() %>)</TD>
                                     <TD><%= 5 * runStatsData.getTradeUserCount() %></TD>
