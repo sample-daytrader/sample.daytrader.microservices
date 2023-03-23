@@ -27,4 +27,4 @@ hs_err_pid*
 .vscode
 .gradle
 
-./daytrader-*/
+./daytrader-web
