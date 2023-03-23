@@ -1,12 +1,13 @@
 ### Build instructions
 
-1. From the root folder, run:
+1. Clone this repo (including all its submodules):
 ```
- ./mvnw clean package
+git clone --recurse-submodules -j8 git://github.com/sample-daytrader/sample.daytrader.microservices.git
 ```
 
-2. To deploy, from the root folder, run:
+2. From the root folder, run:
+```
+make 
+```
 
-```
-docker compose up --always-recreate-deps --force-recreate --build --detach
-```
+3. Go to localhost:5443 to start using the application.
