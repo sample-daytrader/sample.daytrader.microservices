@@ -1,0 +1,43 @@
+version: "3.9"
+
+name: daytrader-microservices
+
+services:
+  daytrader-web-service:
+    image: daytrader-web-service:latest
+    hostname: daytrader-web-service
+    container_name: daytrader-web-service
+    ports:
+      - "5443:8080"
+
+
+  daytrader-gateway-service:
+    image: daytrader-gateway-service:latest
+    hostname: daytrader-gateway-service
+    container_name: daytrader-gateway-service
+    ports:
+      - "2443:8080"
+
+
+  daytrader-portfolios-service:
+    image: daytrader-portfolios-service:latest
+    hostname: daytrader-portfolios-service
+    container_name: daytrader-portfolios-service
+    ports:
+      - "3443:8080"
+
+  daytrader-quotes-service:
+    image: daytrader-quotes-service:latest
+    hostname: daytrader-quotes-service
+    container_name: daytrader-quotes-service
+    ports:
+      - "4443:8080"
+
+
+  daytrader-accounts-service:
+    build: .
+    image: daytrader-accounts-service
+    hostname: daytrader-accounts-service
+    container_name: daytrader-accounts-service
+    ports:
+      - "1443:8080"
