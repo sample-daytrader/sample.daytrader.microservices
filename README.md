@@ -18,7 +18,7 @@ git clone https://github.com/sample-daytrader/sample.daytrader.microservices.git
 make deploy 
 ```
 
-3. Now, just go to [localhost:5443](localhost:5443) to start using the application.
+3. Now, just go to [http://localhost:5443](http://localhost:5443) to start using the application.
 
 ### Development Instructions
 
