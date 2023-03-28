@@ -8,30 +8,28 @@ services:
     hostname: daytrader-web-service
     container_name: daytrader-web-service
     ports:
-      - "5443:8080"
-
+      - "5443:5443"
 
   daytrader-gateway-service:
     image: quay.io/daytrader/daytrader-gateway-service:latest
     hostname: daytrader-gateway-service
     container_name: daytrader-gateway-service
     ports:
-      - "2443:8080"
-
+      - "2443:2443"
 
   daytrader-portfolios-service:
     image: quay.io/daytrader/daytrader-portfolios-service:latest
     hostname: daytrader-portfolios-service
     container_name: daytrader-portfolios-service
     ports:
-      - "3443:8080"
+      - "3443:3443"
 
   daytrader-quotes-service:
     image: quay.io/daytrader/daytrader-quotes-service:latest
     hostname: daytrader-quotes-service
     container_name: daytrader-quotes-service
     ports:
-      - "4443:8080"
+      - "4443:4443"
 
 
   daytrader-accounts-service:
@@ -39,4 +37,4 @@ services:
     hostname: daytrader-accounts-service
     container_name: daytrader-accounts-service
     ports:
-      - "1443:8080"
+      - "1443:1443"
