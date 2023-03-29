@@ -3,38 +3,51 @@ version: "3.9"
 name: daytrader-microservices
 
 services:
-  daytrader-web-service:
+  web-service:
     image: quay.io/daytrader/daytrader-web-service:latest
-    hostname: daytrader-web-service
+    hostname: web-service
     container_name: daytrader-web-service
+    networks: 
+      - dev
     ports:
       - "5443:5443"
 
-  daytrader-gateway-service:
+  gateway-service:
     image: quay.io/daytrader/daytrader-gateway-service:latest
-    hostname: daytrader-gateway-service
+    hostname: gateway-service
     container_name: daytrader-gateway-service
+    networks: 
+      - dev
     ports:
       - "2443:2443"
 
-  daytrader-portfolios-service:
+  portfolios-service:
     image: quay.io/daytrader/daytrader-portfolios-service:latest
-    hostname: daytrader-portfolios-service
+    hostname: portfolios-service
     container_name: daytrader-portfolios-service
+    networks: 
+      - dev
     ports:
       - "3443:3443"
 
-  daytrader-quotes-service:
+  quotes-service:
     image: quay.io/daytrader/daytrader-quotes-service:latest
-    hostname: daytrader-quotes-service
+    hostname: quotes-service
     container_name: daytrader-quotes-service
+    networks: 
+      - dev
     ports:
       - "4443:4443"
 
 
-  daytrader-accounts-service:
+  accounts-service:
     image: quay.io/daytrader/daytrader-accounts-service:latest
-    hostname: daytrader-accounts-service
+    hostname: accounts-service
     container_name: daytrader-accounts-service
+    networks: 
+      - dev
     ports:
       - "1443:1443"
+
+networks:
+  dev:
